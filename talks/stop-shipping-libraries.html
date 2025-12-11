@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Library resources for Stop Prototyping Start Shipping talk - Python, Node.js, and Golang libraries">
+    <title>Stop Shipping - Library Resources | Vasil Kulakov</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .lang-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        
+        .lang-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .library-section {
+            display: none;
+        }
+        
+        .library-section.active {
+            display: block;
+        }
+        
+        .topic-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .topic-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        .topic-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .library-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .library-item {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.2s ease;
+        }
+        
+        .library-item:hover {
+            background: var(--bg-accent);
+            border-left-color: var(--accent-color);
+            transform: translateX(4px);
+        }
+        
+        .library-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .library-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            word-break: break-all;
+        }
+        
+        .library-link:hover {
+            text-decoration: underline;
+        }
+        
+        .library-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .intro-text {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Add top padding to account for fixed navbar */
+        .section {
+            padding-top: 7rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <a href="../index.html" style="color: inherit; text-decoration: none;">Vasil Kulakov</a>
+            </div>
+            <div class="navbar-contact">
+                <span>📞 +49-178-268-90-16</span>
+                <a href="mailto:vasily.kulakov@gmail.com">✉️ vasily.kulakov@gmail.com</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container-narrow">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+            
+            <div class="section-header">
+                <h2 class="section-title">Stop Prototyping Start Shipping.<br/> Library Resources</h2>
+                <p class="intro-text">
+                    Explore libraries for Python, Node.js, and Golang organized by topics covered in the talk. 
+                    Use the toggle below to switch between languages.
+                </p>
+            </div>
+
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="python">🐍 Python</button>
+                <button class="lang-btn" data-lang="nodejs">📦 Node.js</button>
+                <button class="lang-btn" data-lang="golang">🐹 Golang</button>
+            </div>
+
+            <!-- Python Libraries -->
+            <div class="library-section active" id="python">
+                <!-- Choosing the Right Model -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Choosing the Right Model</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">OpenAI</div>
+                            <a href="https://github.com/openai/openai-python" target="_blank" class="library-link">https://github.com/openai/openai-python</a>
+                            <div class="library-description">Official Python client for OpenAI API (GPT-4, GPT-3.5, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Google Generative AI</div>
+                            <a href="https://github.com/google/generative-ai-python" target="_blank" class="library-link">https://github.com/google/generative-ai-python</a>
+                            <div class="library-description">Python SDK for Google's Gemini models (Gemini 2.0 Flash, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Anthropic SDK</div>
+                            <a href="https://github.com/anthropics/anthropic-sdk-python" target="_blank" class="library-link">https://github.com/anthropics/anthropic-sdk-python</a>
+                            <div class="library-description">Official Python client for Claude models</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">LangChain</div>
+                            <a href="https://github.com/langchain-ai/langchain" target="_blank" class="library-link">https://github.com/langchain-ai/langchain</a>
+                            <div class="library-description">Framework for building LLM applications with multiple model support</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">LlamaIndex</div>
+                            <a href="https://github.com/run-llama/llama_index" target="_blank" class="library-link">https://github.com/run-llama/llama_index</a>
+                            <div class="library-description">Data framework for LLM applications with model abstraction</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Engineering & Context Setting</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">LangChain Prompt Templates</div>
+                            <a href="https://python.langchain.com/docs/modules/model_io/prompts/" target="_blank" class="library-link">https://python.langchain.com/docs/modules/model_io/prompts/</a>
+                            <div class="library-description">Prompt templates and management for consistent context setting</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Promptify</div>
+                            <a href="https://github.com/promptslab/Promptify" target="_blank" class="library-link">https://github.com/promptslab/Promptify</a>
+                            <div class="library-description">Python library for prompt engineering and optimization</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Guidance</div>
+                            <a href="https://github.com/guidance-ai/guidance" target="_blank" class="library-link">https://github.com/guidance-ai/guidance</a>
+                            <div class="library-description">A guidance language for controlling large language models</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">PromptTools</div>
+                            <a href="https://github.com/patrickloeber/prompttools" target="_blank" class="library-link">https://github.com/patrickloeber/prompttools</a>
+                            <div class="library-description">Open-source tools for testing and experimenting with prompts</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Security & Message Types -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Security & Message Types Separation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">OpenAI Python (System Messages)</div>
+                            <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" class="library-link">https://platform.openai.com/docs/guides/prompt-engineering</a>
+                            <div class="library-description">Official documentation on using system/user/assistant message types</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Guardrails AI</div>
+                            <a href="https://github.com/guardrails-ai/guardrails" target="_blank" class="library-link">https://github.com/guardrails-ai/guardrails</a>
+                            <div class="library-description">Python framework for building safe, reliable LLM applications</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">LLM Guard</div>
+                            <a href="https://github.com/protectai/llm-guard" target="_blank" class="library-link">https://github.com/protectai/llm-guard</a>
+                            <div class="library-description">Security toolkit for LLM applications with input/output validation</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Prompt Injection Detection</div>
+                            <a href="https://github.com/vercel/ai/tree/main/packages/ai" target="_blank" class="library-link">https://github.com/vercel/ai/tree/main/packages/ai</a>
+                            <div class="library-description">Best practices for prompt injection prevention (Python examples)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Content Generation -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Content Generation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">LangChain Chains</div>
+                            <a href="https://python.langchain.com/docs/modules/chains/" target="_blank" class="library-link">https://python.langchain.com/docs/modules/chains/</a>
+                            <div class="library-description">Chain different LLM calls for complex content generation workflows</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Haystack</div>
+                            <a href="https://github.com/deepset-ai/haystack" target="_blank" class="library-link">https://github.com/deepset-ai/haystack</a>
+                            <div class="library-description">End-to-end framework for building production-ready LLM applications</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">AutoGPT</div>
+                            <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" class="library-link">https://github.com/Significant-Gravitas/AutoGPT</a>
+                            <div class="library-description">Autonomous GPT-4 experimentation platform</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Node.js Libraries -->
+            <div class="library-section" id="nodejs">
+                <!-- Choosing the Right Model -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Choosing the Right Model</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">OpenAI Node.js SDK</div>
+                            <a href="https://github.com/openai/openai-node" target="_blank" class="library-link">https://github.com/openai/openai-node</a>
+                            <div class="library-description">Official Node.js client for OpenAI API (GPT-4, GPT-3.5, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">@google/generative-ai</div>
+                            <a href="https://github.com/google/generative-ai-nodejs" target="_blank" class="library-link">https://github.com/google/generative-ai-nodejs</a>
+                            <div class="library-description">Node.js SDK for Google's Gemini models (Gemini 2.0 Flash, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">@anthropic-ai/sdk</div>
+                            <a href="https://github.com/anthropics/anthropic-sdk-typescript" target="_blank" class="library-link">https://github.com/anthropics/anthropic-sdk-typescript</a>
+                            <div class="library-description">Official TypeScript/JavaScript SDK for Claude models</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">LangChain.js</div>
+                            <a href="https://github.com/langchain-ai/langchainjs" target="_blank" class="library-link">https://github.com/langchain-ai/langchainjs</a>
+                            <div class="library-description">TypeScript/JavaScript framework for building LLM applications</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Vercel AI SDK</div>
+                            <a href="https://github.com/vercel/ai" target="_blank" class="library-link">https://github.com/vercel/ai</a>
+                            <div class="library-description">Full-featured SDK for building AI applications with React, Vue, and more</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Engineering & Context Setting</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">LangChain.js Prompts</div>
+                            <a href="https://js.langchain.com/docs/modules/model_io/prompts/" target="_blank" class="library-link">https://js.langchain.com/docs/modules/model_io/prompts/</a>
+                            <div class="library-description">Prompt templates and prompt management for consistent context</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Promptable</div>
+                            <a href="https://github.com/cfortuner/promptable" target="_blank" class="library-link">https://github.com/cfortuner/promptable</a>
+                            <div class="library-description">TypeScript library for building and managing prompts</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">AI SDK Prompt Helpers</div>
+                            <a href="https://sdk.vercel.ai/docs/guides/providers/openai" target="_blank" class="library-link">https://sdk.vercel.ai/docs/guides/providers/openai</a>
+                            <div class="library-description">Utilities for prompt engineering and context management</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Promptfoo</div>
+                            <a href="https://github.com/promptfoo/promptfoo" target="_blank" class="library-link">https://github.com/promptfoo/promptfoo</a>
+                            <div class="library-description">Testing and evaluation framework for LLM prompts</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Security & Message Types -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Security & Message Types Separation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">OpenAI Node.js (System Messages)</div>
+                            <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" class="library-link">https://platform.openai.com/docs/guides/prompt-engineering</a>
+                            <div class="library-description">Official docs on system/user/assistant message types in Node.js</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">AI SDK Security</div>
+                            <a href="https://sdk.vercel.ai/docs/guides/security" target="_blank" class="library-link">https://sdk.vercel.ai/docs/guides/security</a>
+                            <div class="library-description">Security best practices and prompt injection prevention</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">LLM Guard (Node.js)</div>
+                            <a href="https://github.com/protectai/llm-guard" target="_blank" class="library-link">https://github.com/protectai/llm-guard</a>
+                            <div class="library-description">Security toolkit with Node.js bindings for input/output validation</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Helicone</div>
+                            <a href="https://github.com/Helicone/helicone" target="_blank" class="library-link">https://github.com/Helicone/helicone</a>
+                            <div class="library-description">Observability and security monitoring for LLM applications</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Content Generation -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Content Generation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">LangChain.js Chains</div>
+                            <a href="https://js.langchain.com/docs/modules/chains/" target="_blank" class="library-link">https://js.langchain.com/docs/modules/chains/</a>
+                            <div class="library-description">Chain LLM calls for complex content generation workflows</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">AI SDK Streams</div>
+                            <a href="https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text" target="_blank" class="library-link">https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text</a>
+                            <div class="library-description">Streaming and content generation utilities</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">Inngest</div>
+                            <a href="https://github.com/inngest/inngest-js" target="_blank" class="library-link">https://github.com/inngest/inngest-js</a>
+                            <div class="library-description">Workflow engine for building reliable LLM-powered applications</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Golang Libraries -->
+            <div class="library-section" id="golang">
+                <!-- Choosing the Right Model -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Choosing the Right Model</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">go-openai</div>
+                            <a href="https://github.com/sashabaranov/go-openai" target="_blank" class="library-link">https://github.com/sashabaranov/go-openai</a>
+                            <div class="library-description">Unofficial but popular Go client for OpenAI API (GPT-4, GPT-3.5, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">google/generative-ai-go</div>
+                            <a href="https://github.com/google/generative-ai-go" target="_blank" class="library-link">https://github.com/google/generative-ai-go</a>
+                            <div class="library-description">Official Go client for Google's Gemini models (Gemini 2.0 Flash, etc.)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">anthropic-go</div>
+                            <a href="https://github.com/anthropics/anthropic-sdk-go" target="_blank" class="library-link">https://github.com/anthropics/anthropic-sdk-go</a>
+                            <div class="library-description">Official Go SDK for Claude models</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">go-llm</div>
+                            <a href="https://github.com/tmc/langchaingo" target="_blank" class="library-link">https://github.com/tmc/langchaingo</a>
+                            <div class="library-description">LangChain implementation in Go for building LLM applications</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">ollama</div>
+                            <a href="https://github.com/ollama/ollama-go" target="_blank" class="library-link">https://github.com/ollama/ollama-go</a>
+                            <div class="library-description">Go client for running local LLMs with Ollama</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Engineering & Context Setting</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">langchaingo Prompts</div>
+                            <a href="https://github.com/tmc/langchaingo/tree/main/prompts" target="_blank" class="library-link">https://github.com/tmc/langchaingo/tree/main/prompts</a>
+                            <div class="library-description">Prompt templates and management utilities in Go</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">go-prompt</div>
+                            <a href="https://github.com/c-bata/go-prompt" target="_blank" class="library-link">https://github.com/c-bata/go-prompt</a>
+                            <div class="library-description">Building interactive prompts (CLI-focused but useful for context)</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">go-openai Chat Completion</div>
+                            <a href="https://github.com/sashabaranov/go-openai#chat-completion" target="_blank" class="library-link">https://github.com/sashabaranov/go-openai#chat-completion</a>
+                            <div class="library-description">Message-based chat completion with system/user/assistant roles</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prompt Security & Message Types -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Prompt Security & Message Types Separation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">go-openai Message Types</div>
+                            <a href="https://pkg.go.dev/github.com/sashabaranov/go-openai#ChatMessage" target="_blank" class="library-link">https://pkg.go.dev/github.com/sashabaranov/go-openai#ChatMessage</a>
+                            <div class="library-description">Proper message type separation (System, User, Assistant) in Go</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">google/generative-ai-go Safety</div>
+                            <a href="https://pkg.go.dev/google.generative.ai/go/v2#SafetySetting" target="_blank" class="library-link">https://pkg.go.dev/google.generative.ai/go/v2#SafetySetting</a>
+                            <div class="library-description">Safety settings and content filtering for Gemini API</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">go-sanitize</div>
+                            <a href="https://github.com/kennygrant/sanitize" target="_blank" class="library-link">https://github.com/kennygrant/sanitize</a>
+                            <div class="library-description">Input sanitization library for preventing prompt injection</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">langchaingo Memory</div>
+                            <a href="https://github.com/tmc/langchaingo/tree/main/memory" target="_blank" class="library-link">https://github.com/tmc/langchaingo/tree/main/memory</a>
+                            <div class="library-description">Memory management for maintaining context and conversation state</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Content Generation -->
+                <div class="topic-card">
+                    <h3 class="topic-title">Content Generation</h3>
+                    <ul class="library-list">
+                        <li class="library-item">
+                            <div class="library-name">langchaingo Chains</div>
+                            <a href="https://github.com/tmc/langchaingo/tree/main/chains" target="_blank" class="library-link">https://github.com/tmc/langchaingo/tree/main/chains</a>
+                            <div class="library-description">Chain different LLM operations for complex workflows</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">langchaingo Agents</div>
+                            <a href="https://github.com/tmc/langchaingo/tree/main/agents" target="_blank" class="library-link">https://github.com/tmc/langchaingo/tree/main/agents</a>
+                            <div class="library-description">Agent framework for autonomous LLM-powered applications</div>
+                        </li>
+                        <li class="library-item">
+                            <div class="library-name">go-openai Streaming</div>
+                            <a href="https://github.com/sashabaranov/go-openai#streaming" target="_blank" class="library-link">https://github.com/sashabaranov/go-openai#streaming</a>
+                            <div class="library-description">Streaming responses for real-time content generation</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-10786597-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script>
+        // Language toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const librarySections = document.querySelectorAll('.library-section');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetLang = this.getAttribute('data-lang');
+                    
+                    // Remove active class from all buttons
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    librarySections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show target section
+                    const targetSection = document.getElementById(targetLang);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
