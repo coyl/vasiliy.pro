@@ -547,6 +547,10 @@ a:hover {
         gap: 1rem;
     }
     
+    .navbar-contact > span {
+        display: none;
+    }
+    
     .navbar-links {
         order: 3;
     }
