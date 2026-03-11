@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione CORS in Ruby — Blog | Vasil Kulakov</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <a href="../index.html">Vasil Kulakov</a>
+            </div>
+            <div class="navbar-contact">
+                <span>📞 +49-178-268-90-16</span>
+                <a href="mailto:vasily.kulakov@gmail.com">✉️ vasily.kulakov@gmail.com</a>
+            </div>
+            <div class="navbar-links">
+                <a href="../ru.html" title="Русская версия">🇷🇺</a>
+                <a href="../de.html" title="Deutsche Version">🇩🇪</a>
+                <a href="../pl.html" title="Polska wersja">🇵🇱</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section">
+        <article class="container-narrow">
+            <header style="margin-bottom: 2rem;">
+                <h1>Gestione CORS in Ruby</h1>
+                <p class="section-subtitle" style="color: var(--text-secondary);">Uso di Rack::Cors con Sinatra</p>
+            </header>
+
+            <p>Quando una pagina web su un'origine (es. <code>https://app.example.com</code>) effettua una richiesta a un'API su un'altra origine (es. <code>https://api.example.com</code>), il browser applica la <strong>Same-Origin Policy</strong>. Di default le richieste cross-origin vengono bloccate, a meno che il server non le autorizzi esplicitamente tramite <strong>CORS</strong> (Cross-Origin Resource Sharing).</p>
+
+            <p>Il CORS funziona tramite intestazioni HTTP. Il browser può inviare una richiesta di preflight <code>OPTIONS</code>; il server deve rispondere con intestazioni come <code>Access-Control-Allow-Origin</code>, <code>Access-Control-Allow-Methods</code> e <code>Access-Control-Allow-Headers</code> per consentire la richiesta effettiva. In Ruby un modo comune per aggiungere queste intestazioni è la gemma <code>rack-cors</code>: si integra nello stack Rack e inietta per te le intestazioni CORS corrette.</p>
+
+            <p>Qui sotto è mostrata una piccola app Sinatra che abilita il CORS per tutte le origini e tutte le route con <code>Rack::Cors</code>. Il middleware viene montato con <code>use Rack::Cors</code>; il blocco <code>allow</code> definisce quali origini sono consentite (<code>origins '*'</code> significa qualsiasi origine), quali risorse (<code>resource '*'</code>), quali intestazioni HTTP (<code>headers :any</code>) e quali metodi (<code>methods :any</code>). Il resto dell'app è una route catch-all che restituisce 200 e un contatore di richieste, utile per verificare che le richieste cross-origin vadano a buon fine.</p>
+
+            <div id="my-player"></div>
+            <script
+              src="https://code-commenter-web-870059818673.europe-west1.run.app/embed-player.js"
+              data-code-commenter-embed
+              data-job-id="019cdde2-cb8d-76b5-82ed-97a32042defa"
+              data-target="#my-player"
+              data-width="100%"
+              data-height="550"
+            ></script>
+
+            <p style="margin-top: 2rem;">In produzione evita <code>origins '*'</code> a meno che non ti serva davvero consentire a qualsiasi sito di chiamare la tua API. Preferisci una whitelist: ad es. <code>origins 'https://app.example.com', 'https://admin.example.com'</code>. Puoi anche limitare <code>resource</code> a percorsi specifici e <code>methods</code> ai soli metodi che la tua API usa effettivamente. Le applicazioni Rails possono usare la gemma <code>rack-cors</code> allo stesso modo, oppure configurare il CORS tramite <code>config/initializers/cors.rb</code> quando si usa il supporto CORS integrato. In ogni caso il browser consentirà la richiesta cross-origin solo se le intestazioni CORS del server corrispondono a quanto richiede il client.</p>
+        </article>
+    </main>
+</body>
+</html>

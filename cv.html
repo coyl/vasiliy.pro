@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasil Kulakov — CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-muted: #444;
+            --border: #ccc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.45;
+            color: var(--text);
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 12mm 15mm;
+            background: #fff;
+        }
+        h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            margin-bottom: 2pt;
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            font-size: 10pt;
+            color: var(--text-muted);
+            margin-bottom: 8pt;
+        }
+        .contact {
+            font-size: 10pt;
+            color: var(--text-muted);
+            margin-bottom: 14pt;
+        }
+        .contact span { display: block; }
+        .cv-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16pt;
+            margin-bottom: 4pt;
+        }
+        .cv-header-photo {
+            flex-shrink: 0;
+        }
+        .cv-header-photo img {
+            display: block;
+            height: 200px;
+            width: auto;
+            object-fit: cover;
+            border-radius: 4pt;
+        }
+        .cv-header-left { flex: 1; min-width: 0; }
+        .cv-header-badges {
+            flex-shrink: 0;
+        }
+        .cv-header-badges img {
+            display: block;
+            height: 52pt;
+            width: auto;
+        }
+        @media print {
+            .cv-header-badges img { height: 48pt; }
+        }
+        h2 {
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 14pt 0 6pt;
+            padding-bottom: 2pt;
+            border-bottom: 1pt solid var(--border);
+        }
+        .summary ul, .certificates ul {
+            margin: 0 0 8pt;
+            padding-left: 1.2em;
+        }
+        .summary li, .certificates li {
+            margin-bottom: 3pt;
+        }
+        .certificates .cert-label {
+            font-weight: 600;
+        }
+        .job {
+            margin-bottom: 12pt;
+            page-break-inside: avoid;
+        }
+        .job-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4pt;
+            margin-bottom: 2pt;
+        }
+        .job-company {
+            font-weight: 700;
+            font-size: 11pt;
+        }
+        .job-dates {
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+        .job-title {
+            font-size: 10pt;
+            color: var(--text-muted);
+            margin-bottom: 4pt;
+        }
+        .job-team, .job-stack {
+            font-size: 9pt;
+            color: var(--text-muted);
+            margin-bottom: 2pt;
+        }
+        .job ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+        .job li {
+            margin-bottom: 2pt;
+        }
+        .education-item {
+            margin-bottom: 8pt;
+            page-break-inside: avoid;
+        }
+        .education-degree { font-weight: 600; }
+        .education-school { color: var(--text-muted); font-size: 10pt; }
+        .education-date { font-size: 9pt; color: var(--text-muted); }
+        .opensource ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+        .opensource a {
+            color: #1967d2;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        @media print {
+            body { padding: 10mm; }
+            .job { page-break-inside: avoid; }
+            h2 { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <header class="cv-header">
+        <div class="cv-header-left">
+            <h1>Vasil Kulakov</h1>
+            <div class="contact">
+                <span>+49-178-268-90-16</span>
+                <span>vasily.kulakov@gmail.com</span>
+                <span>Munich, Bavaria</span>
+            </div>
+        </div>
+        <div class="cv-header-badges">
+            <img src="image.png" alt="Google Cloud Professional Cloud Architect and Cloud DevOps Engineer" width="140" height="52">
+        </div>
+        <div class="cv-header-photo">
+            <img src="1769262056583.jpeg" alt="Vasil Kulakov" height="200">
+        </div>
+    </header>
+
+    <section class="summary">
+        <h2>Summary</h2>
+        <ul>
+            <li>AI and Golang enthusiast.</li>
+            <li>20 years of development experience, including 14 years in team management.</li>
+            <li>Expertise: Golang, PHP, Symfony, PostgreSQL, RabbitMQ, Docker, and Kubernetes.</li>
+            <li>Familiar with Swift, Python and ReactJS.</li>
+            <li>Extensive experience migrating monolithic systems to microservices and building successful development teams using Agile, SRE &amp; DevOps approaches.</li>
+            <li>Experienced in scaling fast growing companies' infrastructure and teams.</li>
+            <li>Languages: Fluent English, German (B1).</li>
+        </ul>
+    </section>
+
+    <section class="certificates">
+        <h2>Certificates</h2>
+        <ul>
+            <li><span class="cert-label">Google Professional Cloud Architect</span> Certification</li>
+            <li><span class="cert-label">Google Professional Cloud DevOps</span> Certification</li>
+            <li><span class="cert-label">Zend Certified Engineer</span></li>
+            <li><span class="cert-label">IBM EServer Technology Solutions</span></li>
+            <li><span class="cert-label">Objectives and Key Results — OKR</span> certification</li>
+        </ul>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <div class="education-degree">Master of Business Administration</div>
+            <div class="education-school">National Research Nuclear University MEPhI</div>
+            <div class="education-date">01/2010</div>
+        </div>
+        <div class="education-item">
+            <div class="education-degree">Computer Science</div>
+            <div class="education-school">National Research Nuclear University MEPhI</div>
+            <div class="education-date">01/2009</div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">SnappyLoop.work</span>
+                <span class="job-dates">06/2023 – 12/2025</span>
+            </div>
+            <div class="job-title">Staff software engineer, SRE, München, BY</div>
+            <div class="job-stack">Stack: Golang, Typescript, Postgresql, Redis</div>
+            <div class="job-stack">Infrastructure: k3s+GKE, Docker, Helm, Grafana, Sentry</div>
+            <ul>
+                <li>Created and maintaining language learning apps, based on Telegram messenger</li>
+                <li>Created a robust microservice architecture for multi-model agentic AI language learning assistant</li>
+                <li>Maintaining reliability for peak loads of thousands RPS with kubernetes and helm</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">CHECK24 Vergleichsportal GmbH</span>
+                <span class="job-dates">06/2023 – 12/2025</span>
+            </div>
+            <div class="job-title">Team Lead, SRE, München, BY</div>
+            <div class="job-stack">Stack: Golang, PHP, Mysql, Redis, Kafka, AWS</div>
+            <ul>
+                <li>Led a 3-person backend team in modernizing a legacy PHP application, migrating from Laminas to Doctrine in 6 months and winning an internal award for "Best Client-Oriented Product."</li>
+                <li>Architected a complete DevOps transformation to establish an SRE culture, migrating the entire infrastructure from Ansible on bare metal to a Kubernetes cluster with Helm and Bitbucket Pipelines.</li>
+                <li>Rapidly delivered key reliability and automation milestones: Set up one-click Kubernetes test environments in 1 month; implemented a full observability stack (Prometheus, Grafana, Sentry) in 1 month; integrated static analysis with unit and functional testing into the CI/CD pipeline in 1 month.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">CHECK24 Vergleichsportal GmbH</span>
+                <span class="job-dates">11/2022 – 06/2023</span>
+            </div>
+            <div class="job-title">Team Lead, München, BY</div>
+            <ul>
+                <li>Led a 4-person backend team (PHP, Symfony), collaborating with Product Managers to define requirements, prioritize the backlog, and ensure architectural alignment with company strategy.</li>
+                <li>Overhauled an inefficient workflow by spearheading the team's adoption of Scrum.</li>
+                <li>Drove team efficiency and continuous improvement by facilitating all agile ceremonies, including daily stand-ups, sprint planning, and retrospectives.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">CHECK24 Vergleichsportal GmbH</span>
+                <span class="job-dates">08/2022 – 11/2022</span>
+            </div>
+            <div class="job-title">Senior Developer, München, BY</div>
+            <div class="job-team">Team: 4 backend, 2 PMs.</div>
+            <div class="job-stack">Stack: PHP 8.2, Symfony 4/5, MySQL, Redis.</div>
+            <ul>
+                <li>Promoted from Backend Engineer to Team Lead, assuming full ownership of the company's critical delivery-tracking service.</li>
+                <li>Improved the stability and reliability of the legacy system by systematically resolving numerous long-standing bugs.</li>
+                <li>Simultaneously contributed to a new strategic project, driving its development and ensuring alignment with business goals through close collaboration with product managers.</li>
+                <li>Championed software quality by leading code reviews, improving testing processes, and staying current with modern PHP and Symfony best practices.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Infourok</span>
+                <span class="job-dates">09/2021 – 08/2022</span>
+            </div>
+            <div class="job-title">Head of Development, SRM</div>
+            <div class="job-team">Team: 12 backend, 5 frontend, 2 PMs, 2 designers.</div>
+            <div class="job-stack">Stack: PHP 8, Symfony 4, MySQL, Elastic Search.</div>
+            <ul>
+                <li>The task was to establish the work of two new development teams.</li>
+                <li>Managed two product teams. Built 3 teams mixed of frontend and backend developers.</li>
+                <li>Established the full workflow and automation for all the teams.</li>
+                <li>Participated in decisions about the tech architecture.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Homeapp</span>
+                <span class="job-dates">01/2019 – 09/2021</span>
+            </div>
+            <div class="job-title">CTO</div>
+            <div class="job-team">Team: 12 backend, 10 frontend, 5 QA, 3 devops, 4 PMs.</div>
+            <div class="job-stack">Stack: Golang, Python, PHP 7/8, Symfony 4/5, PostgreSQL, Docker, Kubernetes, AWS.</div>
+            <ul>
+                <li>Responsible for creating a market analysis system and workflow automation for the entire agency, starting from scratch — full workflow automation from incoming requests (via call center and web forms) to ad publication and deals management.</li>
+                <li>Hired and set up a development department consisting of 30+ engineers from scratch; implemented SCRUM development practices across the entire company.</li>
+                <li>Collaborated with the product department to implement a product development process.</li>
+                <li>Automated the developers' workflow by setting up a JIRA+GitHub+Drone CI+Helm chain for development environment deployment.</li>
+                <li>Developed and supported the company's infrastructure using Docker, Kubernetes, Helm, and Drone CI; developed the company's tech platform.</li>
+                <li>Hired, developed teams, and scaled workflows from one-team setup to multiple teams</li>
+                <li>Implemented micro-service architecture using PHP and Golang (AMQP and HTTP API).</li>
+                <li>Designed and implemented a remote workflow for the COVID period, a motivation system for the team, and a KPI system for the department.</li>
+                <li>Supported data pipelines for the company using Python, Python playbooks and Golang.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Homeapp</span>
+                <span class="job-dates">04/2018 – 01/2019</span>
+            </div>
+            <div class="job-title">Teamlead, SRE</div>
+            <div class="job-team">Team: 3 backend, 2 frontend.</div>
+            <div class="job-stack">Stack: Golang, PHP 7/8, Symfony 4/5, PostgreSQL.</div>
+            <ul>
+                <li>Leading a team of three PHP engineers.</li>
+                <li>Developing services using Golang, PHP7, Symfony4, PostgreSQL, and RabbitMQ.</li>
+                <li>Implementing Docker for deployment and containerization; continuous delivery with Google Kubernetes; continuous integration using Google Build, Docker.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Balance Platform</span>
+                <span class="job-dates">04/2017 – 04/2018</span>
+            </div>
+            <div class="job-title">KYC Lead Developer</div>
+            <div class="job-stack">Cloud SAAS banking product (php, postgresql, symfony): data enrichment from document scans; documents verification in external systems (traffic police, FNP, FTS, FMS, etc.).</div>
+            <div class="job-stack">Stack: Symfony 3/4, PostgreSQL, PHP 7.1, Python, RabbitMQ, Memcached, Openstack SWIFT, keycloak.</div>
+            <ul>
+                <li>Participated in the implementation of the SCRUM workflow using git, bitbucket, ansible.</li>
+                <li>Developed and maintained a docker image for running backend tests. Tests run about 10× faster than running locally and 2–3× faster than CI in semaphore.</li>
+                <li>Supported data pipelines using Python.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Digital Society Laboratory</span>
+                <span class="job-dates">08/2015 – 04/2017</span>
+            </div>
+            <div class="job-title">Symfony Team-lead</div>
+            <ul>
+                <li>Design project architecture; managing developers team (3 developers) on rushing project; symfony2 expertise.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Badoo</span>
+                <span class="job-dates">09/2014 – 08/2015</span>
+            </div>
+            <div class="job-title">Head of Release Group, SRM, London, ENG</div>
+            <ul>
+                <li>Led an international team of developers and release engineers based in Moscow and London, managing workflows across different time zones and cultures.</li>
+                <li>Improved release efficiency and reliability by developing custom automation tools and optimizing the delivery process.</li>
+                <li>Managed the end-to-end release cycle, ensuring on-time delivery of high-quality software.</li>
+                <li>Collaborated extensively with the product team (primarily in English) to align all releases with user requirements and company strategy.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Creara Media</span>
+                <span class="job-dates">03/2012 – 09/2014</span>
+            </div>
+            <div class="job-title">Head of Engineering, SRM</div>
+            <ul>
+                <li>Managing PHP department (5 teams, 15 developers).</li>
+                <li>Implemented CI/CD system (Git/Jira/Teamcity/php-tools).</li>
+                <li>Technical expertise; choosing common components and technologies.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Creara</span>
+                <span class="job-dates">11/2010 – 03/2012</span>
+            </div>
+            <div class="job-title">Billing Team Lead</div>
+            <ul>
+                <li>Development of new sms-billing system on Symfony2; tasks and releases planning with PMs; controlling flow, reviewing code.</li>
+                <li>Took a part in designing of CI/CD workflow (Jira/Git/Teamcity); managing a team (3 developers; 1 tester).</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">MOST Creative Club</span>
+                <span class="job-dates">01/2010 – 11/2011</span>
+            </div>
+            <div class="job-title">Web Development Consultant</div>
+            <ul>
+                <li>Participated in web-department development.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-company">Sbubnom web-studio</span>
+                <span class="job-dates">01/2005 – 08/2011</span>
+            </div>
+            <div class="job-title">Head of IT</div>
+            <ul>
+                <li>Managing developers teams (3 teams, 12 developers). Developed about 20 promo-projects.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="opensource">
+        <h2>Open source projects</h2>
+        <ul>
+            <li><a href="https://github.com/snappyloop/stories">https://github.com/snappyloop/stories</a></li>
+            <li><a href="https://github.com/telegraph-go/telegraph">https://github.com/telegraph-go/telegraph</a></li>
+            <li><a href="https://github.com/deckwatch/deckwatch-go">https://github.com/deckwatch/deckwatch-go</a></li>
+            <li><a href="https://github.com/coyl/fsservo">https://github.com/coyl/fsservo</a></li>
+        </ul>
+    </section>
+</body>
+</html>
