@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Talk materials for Snappy Loop — One Bot, One Pod, One Problem at a Time">
+    <title>Snappy Loop — Talk Materials | Vasil Kulakov</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .topic-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .topic-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .pill {
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .pill-dev {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .pill-ops {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .pill-devops {
+            background: #d1fae5;
+            color: #047857;
+        }
+
+        .topic-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .library-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .library-item {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.2s ease;
+        }
+
+        .library-item:hover {
+            background: var(--bg-accent);
+            border-left-color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        .library-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .library-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .library-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            word-break: break-all;
+        }
+
+        .library-link:hover {
+            text-decoration: underline;
+        }
+
+        .library-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .intro-text {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .speaker-block {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .speaker-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid var(--border-color);
+        }
+
+        .speaker-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .speaker-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.25rem;
+        }
+
+        .speaker-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0 0 0.5rem;
+        }
+
+        .speaker-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .speaker-linkedin:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            padding-top: 7rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <a href="../index.html" style="color: inherit; text-decoration: none;">Vasil Kulakov</a>
+            </div>
+            <div class="navbar-contact">
+                <span>📞 +49-178-268-90-16</span>
+                <a href="mailto:vasily.kulakov@gmail.com">✉️ vasily.kulakov@gmail.com</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container-narrow">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+
+            <div class="speaker-block">
+                <img src="../img/sreday.jpeg" alt="Vasil Kulakov" class="speaker-avatar">
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Vasil Kulakov</h3>
+                    <p class="speaker-role">SRE · Engineering Manager</p>
+                    <a href="https://www.linkedin.com/in/vasiliykulakov" target="_blank" rel="noopener noreferrer" class="speaker-linkedin">
+                        LinkedIn →
+                    </a>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-title">Snappy Loop<br/>One Bot, One Pod, One Problem at a Time</h2>
+                <p class="intro-text">
+                    Resources and references from the talk, grouped by technology.
+                </p>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Telegram Bot API</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Chat platform providing distribution, auth, push, and the bot runtime.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Telegram Bot API</div>
+                        <a href="https://core.telegram.org/bots/api" target="_blank" class="library-link">https://core.telegram.org/bots/api</a>
+                        <div class="library-description">Core reference for messages, updates, webhooks, and bot configuration.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Snappy Loop</div>
+                        <a href="https://snappyloop.work" target="_blank" class="library-link">https://snappyloop.work</a>
+                        <div class="library-description">The chat-first language tutor built on this platform.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Long Polling</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Pull-based update delivery — no inbound traffic, no TLS, single-replica only.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">getUpdates</div>
+                        <a href="https://core.telegram.org/bots/api#getupdates" target="_blank" class="library-link">https://core.telegram.org/bots/api#getupdates</a>
+                        <div class="library-description">Long-polling method used in the initial single-worker architecture.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Webhooks</h3>
+                    <div class="topic-pills">
+                        <span class="pill pill-dev">dev</span>
+                        <span class="pill pill-ops">ops</span>
+                    </div>
+                </div>
+                <p class="topic-description">Push-based update delivery that enables multiple bot worker replicas.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">setWebhook</div>
+                        <a href="https://core.telegram.org/bots/api#setwebhook" target="_blank" class="library-link">https://core.telegram.org/bots/api#setwebhook</a>
+                        <div class="library-description">Register an HTTPS endpoint for Telegram to push updates to.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Getting Updates</div>
+                        <a href="https://core.telegram.org/bots/api#getting-updates" target="_blank" class="library-link">https://core.telegram.org/bots/api#getting-updates</a>
+                        <div class="library-description">Comparison of polling and webhook delivery modes.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Webhook Security</h3>
+                    <div class="topic-pills"><span class="pill pill-ops">ops</span></div>
+                </div>
+                <p class="topic-description">Four-layer defense: firewall, ingress, IP check, and request signature verification.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Webhook Secret Token</div>
+                        <a href="https://core.telegram.org/bots/api#setwebhook" target="_blank" class="library-link">https://core.telegram.org/bots/api#setwebhook</a>
+                        <div class="library-description">Application-level signature check via the <code>secret_token</code> parameter.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Telegram IP Ranges</div>
+                        <a href="https://core.telegram.org/bots/webhooks" target="_blank" class="library-link">https://core.telegram.org/bots/webhooks</a>
+                        <div class="library-description">Official IP ranges for firewall and ingress allowlisting.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Golang Bot Worker</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Stateless worker handling Telegram updates, sessions, and outbound API calls.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Go</div>
+                        <a href="https://go.dev/doc/" target="_blank" class="library-link">https://go.dev/doc/</a>
+                        <div class="library-description">Language used for the Telegram bot worker service.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Symfony Storage API</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Internal PHP API for persisting users, courses, and session state.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Symfony</div>
+                        <a href="https://symfony.com/doc/current/index.html" target="_blank" class="library-link">https://symfony.com/doc/current/index.html</a>
+                        <div class="library-description">PHP framework backing the data storage layer.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">PostgreSQL</h3>
+                    <div class="topic-pills"><span class="pill pill-ops">ops</span></div>
+                </div>
+                <p class="topic-description">Primary relational store and source of truth for all persistent data.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">PostgreSQL Documentation</div>
+                        <a href="https://www.postgresql.org/docs/" target="_blank" class="library-link">https://www.postgresql.org/docs/</a>
+                        <div class="library-description">Database engine used by the Symfony storage API.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Kubernetes</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Container orchestration for multi-replica bot workers with autoscaling and rolling updates.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Horizontal Pod Autoscaler</div>
+                        <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" target="_blank" class="library-link">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/</a>
+                        <div class="library-description">Per-bot replica scaling configured via Helm values.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Pod Disruption Budgets</div>
+                        <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/" target="_blank" class="library-link">https://kubernetes.io/docs/tasks/run-application/configure-pdb/</a>
+                        <div class="library-description">Keep at least one replica available during node churn.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Namespaces</div>
+                        <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/" target="_blank" class="library-link">https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/</a>
+                        <div class="library-description">One namespace per language bot for isolation.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Telegram Mini Apps</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Web UI embedded in Telegram for progress, flashcards, profile, and settings.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Telegram Mini Apps</div>
+                        <a href="https://core.telegram.org/bots/webapps" target="_blank" class="library-link">https://core.telegram.org/bots/webapps</a>
+                        <div class="library-description">Web views opened inside Telegram's in-app browser.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Validating initData</div>
+                        <a href="https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app" target="_blank" class="library-link">https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app</a>
+                        <div class="library-description">Verify user identity from the URL fragment signed by the bot secret.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Backend for Frontend</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Public API layer between the mini-app frontend and the internal storage API.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">BFF Pattern</div>
+                        <a href="https://samnewman.io/patterns/architectural/bff/" target="_blank" class="library-link">https://samnewman.io/patterns/architectural/bff/</a>
+                        <div class="library-description">Filters and aggregates internal data before exposing it to the frontend.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Cloudflare Tunnel</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Outbound-only tunnel connecting an external BFF perimeter back to the cluster.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Cloudflare Tunnel</div>
+                        <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/" target="_blank" class="library-link">https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/</a>
+                        <div class="library-description">cloudflared deployment with publication routes — no public ingress for the API.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Cloudflare Access Service Tokens</div>
+                        <a href="https://developers.cloudflare.com/cloudflare-one/identity/service-tokens/" target="_blank" class="library-link">https://developers.cloudflare.com/cloudflare-one/identity/service-tokens/</a>
+                        <div class="library-description">Machine-to-machine auth for BFF → internal API calls.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Redis</h3>
+                    <div class="topic-pills">
+                        <span class="pill pill-dev">dev</span>
+                        <span class="pill pill-ops">ops</span>
+                    </div>
+                </div>
+                <p class="topic-description">Shared session store, write buffer, and global rate-limit counters across replicas.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Redis</div>
+                        <a href="https://redis.io/docs/" target="_blank" class="library-link">https://redis.io/docs/</a>
+                        <div class="library-description">In-memory store replacing per-pod session state.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Redis Persistence</div>
+                        <a href="https://redis.io/docs/management/persistence/" target="_blank" class="library-link">https://redis.io/docs/management/persistence/</a>
+                        <div class="library-description">RDB snapshots as a safety net; Postgres remains authoritative.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Central Rate Controller</h3>
+                    <div class="topic-pills"><span class="pill pill-dev">dev</span></div>
+                </div>
+                <p class="topic-description">Outbound API proxy with global counters — one ceiling across all replicas.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">API Gateway Pattern</div>
+                        <a href="https://microservices.io/patterns/apigateway.html" target="_blank" class="library-link">https://microservices.io/patterns/apigateway.html</a>
+                        <div class="library-description">Proxies AI vendor requests and tracks token usage centrally.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">OpenAI Rate Limits</div>
+                        <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank" class="library-link">https://platform.openai.com/docs/guides/rate-limits</a>
+                        <div class="library-description">Primary external rate ceiling enforced by the controller.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Google Gemini Rate Limits</div>
+                        <a href="https://ai.google.dev/gemini-api/docs/rate-limits" target="_blank" class="library-link">https://ai.google.dev/gemini-api/docs/rate-limits</a>
+                        <div class="library-description">Second AI vendor with per-account quotas.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Observability & SLOs</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Multi-window burn-rate alerts on webhook ack latency and reply success rate.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Google SRE — Alerting on SLOs</div>
+                        <a href="https://sre.google/workbook/alerting-on-slos/" target="_blank" class="library-link">https://sre.google/workbook/alerting-on-slos/</a>
+                        <div class="library-description">Fast burn pages on-call; slow burn queues for next business day.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Prometheus Burn Rate Alerting</div>
+                        <a href="https://prometheus.io/docs/practices/alerting/#multi-window-multi-burn-rate-alerts" target="_blank" class="library-link">https://prometheus.io/docs/practices/alerting/#multi-window-multi-burn-rate-alerts</a>
+                        <div class="library-description">Implementation reference for multi-window SLO alerts.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Playwright Uptime Probes</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Multi-city, multi-ISP headless browser checks verifying full mini-app render.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Playwright</div>
+                        <a href="https://playwright.dev/" target="_blank" class="library-link">https://playwright.dev/</a>
+                        <div class="library-description">Headless browser probes that verify every sub-request returns 2xx.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Helm</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">One chart, one deployment per language bot with per-bot values and secrets.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Helm</div>
+                        <a href="https://helm.sh/docs/" target="_blank" class="library-link">https://helm.sh/docs/</a>
+                        <div class="library-description">Kubernetes package manager for bot deployments.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">Helm Values Files</div>
+                        <a href="https://helm.sh/docs/chart_template_guide/values_files/" target="_blank" class="library-link">https://helm.sh/docs/chart_template_guide/values_files/</a>
+                        <div class="library-description">Per-language config: replicas, HPA, feature flags, env vars.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">SOPS & Git-Ops Secrets</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Encrypted secrets committed to the helm-charts repo, decrypted at deploy time.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Mozilla SOPS</div>
+                        <a href="https://github.com/getsops/sops" target="_blank" class="library-link">https://github.com/getsops/sops</a>
+                        <div class="library-description">Encrypt and decrypt YAML secrets in git.</div>
+                    </li>
+                    <li class="library-item">
+                        <div class="library-name">age</div>
+                        <a href="https://github.com/FiloSottile/age" target="_blank" class="library-link">https://github.com/FiloSottile/age</a>
+                        <div class="library-description">Encryption backend used by SOPS — the only secret kept outside the repo.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-header">
+                    <h3 class="topic-title">Kubernetes CronJob</h3>
+                    <div class="topic-pills"><span class="pill pill-devops">devops</span></div>
+                </div>
+                <p class="topic-description">Scheduled notification delivery as a separate binary, outside the bot worker.</p>
+                <ul class="library-list">
+                    <li class="library-item">
+                        <div class="library-name">Kubernetes CronJob</div>
+                        <a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/" target="_blank" class="library-link">https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/</a>
+                        <div class="library-description">Replaced in-process Go tickers for push reminders.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-10786597-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>
