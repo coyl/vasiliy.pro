@@ -104,8 +104,32 @@
         .summary li, .certificates li {
             margin-bottom: 3pt;
         }
-        .certificates .cert-label {
-            font-weight: 600;
+        .recommendations .rec {
+            display: flex;
+            align-items: flex-start;
+            gap: 8pt;
+            margin: 0 0 8pt;
+            font-size: 12pt;
+            line-height: 1.4;
+        }
+        .recommendations .rec img {
+            width: 44pt;
+            height: 44pt;
+            object-fit: cover;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: #eee;
+            border: 0.5pt solid var(--border);
+        }
+        .recommendations .rec > div { min-width: 0; }
+        .recommendations .rec p {
+            margin: 0 0 2pt;
+            font-style: italic;
+        }
+        .recommendations .rec footer {
+            font-size: 10pt;
+            font-style: normal;
+            color: var(--text-muted);
         }
         .job {
             margin-bottom: 12pt;
@@ -174,9 +198,11 @@
         }
         @media print {
             body { padding: 10mm; }
+            .experience { break-before: page; page-break-before: always; }
+            .recommendations { page-break-after: avoid; }
             .job { page-break-inside: avoid; }
             h2 { page-break-after: avoid; }
-            .job-logo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .job-logo, .recommendations .rec img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
@@ -200,7 +226,7 @@
     </header>
 
     <aside class="credentials" aria-label="Executive Credentials">
-        <span class="cred-item"><strong>MBA</strong> — National Research Nuclear University MEPhI</span>
+        <span class="cred-item"><strong>MBA</strong></span>
         <span class="cred-item"><strong>Google Professional Cloud Architect</strong></span>
         <span class="cred-item"><strong>Google Professional Cloud DevOps Engineer</strong></span>
         <span class="cred-item"><strong>EF SET English C2</strong> — Proficient</span>
@@ -209,13 +235,45 @@
 
     <section class="summary">
         <h2>Summary</h2>
-        <p>Executive Engineering Leader with 20 years of development experience, including 14 years of people management, and a background scaling engineering departments from 5 to ~40 people. Proven track record across the full software lifecycle—from building scalable microservices and AI-driven systems to implementing Agile/Scrum practices and DevOps/SRE transformations. Holds an MBA and Google Cloud Architect &amp; DevOps certifications. Based in Munich with full readiness for hybrid presence in any city in Germany.</p>
+        <p>Engineering leader (VP / former CTO) with 20 years in software and 14 years of people management. MBA; Google Cloud Architect and DevOps certified. Based in Munich; available hybrid in any city in Germany.</p>
         <ul>
-            <li>Scaled Homeapp engineering from 5 to ~40 people and built 3 product teams at Infourok; currently a Senior Software Engineer at vialytics, integrating the grading platform with Data Science products.</li>
-            <li>MBA; hired and scaled teams from scratch, introduced Scrum, KPI and motivation systems, and remote operations; partnered with Product on delivery.</li>
-            <li>Elevated observability, CI/CD, and SRE practices across legacy and cloud-native systems (bare metal → Kubernetes).</li>
+            <li>Scaled Homeapp engineering from 5 to ~40 people; stood up 3 product teams at Infourok.</li>
+            <li>Built hiring, Scrum, KPI, and remote-work systems; partnered with Product on delivery.</li>
+            <li>Led SRE/DevOps transformations: bare metal → Kubernetes, CI/CD, observability.</li>
             <li>Languages: English (C2 / EF SET), German (A2).</li>
         </ul>
+    </section>
+
+    <section class="recommendations">
+        <h2>Recommendations</h2>
+        <div class="rec">
+            <img src="images/recommenders/belma.png" alt="Belma Herenda" width="59" height="59">
+            <div>
+                <p>“Committed to the goal even under a tight deadline — passionate about coding, with a calm, can-do attitude every company should be happy to have.”</p>
+                <footer>— Belma Herenda, Team Lead Software Developer, CHECK24 (worked with Vasil across teams)</footer>
+            </div>
+        </div>
+        <div class="rec">
+            <img src="images/recommenders/michael.png" alt="Michael Erhard" width="59" height="59">
+            <div>
+                <p>“Exceptional as team lead and as a developer. He prioritised his team’s well-being and was always willing to go the extra mile.”</p>
+                <footer>— Michael Erhard, Bereichsleiter, CHECK24 (managed Vasil directly)</footer>
+            </div>
+        </div>
+        <div class="rec">
+            <img src="images/recommenders/andrei.png" alt="Andrei Romashin" width="59" height="59">
+            <div>
+                <p>“Under his leadership the department grew from 5 to 15. He took the product to MVP quickly and established Agile/Scrum and a full delivery lifecycle.”</p>
+                <footer>— Andrei Romashin, Frontend Engineer, Homeapp (reported to Vasil)</footer>
+            </div>
+        </div>
+        <div class="rec">
+            <img src="images/recommenders/gergely.png" alt="Gergely Tőkési" width="59" height="59">
+            <div>
+                <p>“An exceptional team leader who delivers high-quality projects on time and fosters a positive, inclusive team.”</p>
+                <footer>— Gergely Tőkési, Team Lead, CHECK24 (reported to Vasil)</footer>
+            </div>
+        </div>
     </section>
 
     <section class="experience">
@@ -228,8 +286,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/vialytics.png" alt="" width="22" height="22">vialytics — Munich, Bavaria, Germany · Remote</div>
             <ul>
-                <li>Develop function-critical parts of the grading system and the supporting web application.</li>
-                <li>Responsible for integration of the system with Data Science team products.</li>
+                <li>Own function-critical grading services and their integration with Data Science products.</li>
             </ul>
         </div>
 
@@ -239,13 +296,8 @@
                 <span class="job-dates">12/2025 – Present</span>
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/snappyloop.svg" alt="" width="22" height="22">snappyloop.work — Munich, Bavaria, Germany</div>
-            <div class="job-stack">Stack: Golang, PostgreSQL, Docker, Kubernetes</div>
             <ul>
-                <li>Established the infrastructure for an AI-driven language-learning app, contributing to its rapid user growth.</li>
-                <li>Designed and implemented technical solutions using Golang, PostgreSQL, Docker, and Kubernetes.</li>
-                <li>Supporting infrastructure and security for a multi-agent microservice system, designed and tested under load of 20k RPS.</li>
-                <li>Conducted product-feature research to align development with user expectations.</li>
-                <li>Managed the app's performance so it effectively serves hundreds of active users daily.</li>
+                <li>Built the platform for an AI language-learning product; infrastructure and security for a multi-agent system tested at 20k RPS.</li>
             </ul>
         </div>
 
@@ -255,40 +307,22 @@
                 <span class="job-dates">06/2023 – 12/2025</span>
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/check24.png" alt="" width="22" height="22">CHECK24 Vergleichsportal GmbH — Munich, Bavaria, Germany</div>
-            <div class="job-stack">Stack: PHP/Symfony, MySQL, Redis, Kubernetes, Helm, Bitbucket Pipelines</div>
             <ul>
-                <li>Led a backend team modernizing a legacy application: Laminas to Doctrine in 6 months, bare metal to Kubernetes, and an internal "Best Client-Oriented Product" award.</li>
-                <li>Architected a complete DevOps transformation to establish an SRE culture, migrating infrastructure from Ansible on bare metal to Kubernetes with Helm and Bitbucket Pipelines.</li>
-                <li>Delivered reliability milestones in the first months: one-click Kubernetes test environments, a full observability stack (Prometheus, Grafana, Sentry), and static analysis plus unit/functional tests in CI/CD.</li>
+                <li>Led backend modernization (Laminas → Doctrine in 6 months) and won the internal "Best Client-Oriented Product" award.</li>
+                <li>Drove a DevOps/SRE transformation: Ansible on bare metal → Kubernetes, Helm, Bitbucket Pipelines; one-click test environments, observability, and CI with static analysis and tests.</li>
             </ul>
         </div>
 
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Development Team Lead, Delivery</span>
-                <span class="job-dates">11/2022 – 06/2023</span>
+                <span class="job-title">Development Team Lead</span>
+                <span class="job-dates">08/2022 – 06/2023</span>
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/check24.png" alt="" width="22" height="22">CHECK24 Vergleichsportal GmbH — Munich, Bavaria, Germany</div>
-            <ul>
-                <li>Led a 4-person backend team (PHP, Symfony), collaborating with Product Managers to define requirements, prioritize the backlog, and keep architecture aligned with company strategy.</li>
-                <li>Overhauled an inefficient workflow by spearheading the team's adoption of Scrum.</li>
-                <li>Facilitated agile ceremonies (stand-ups, sprint planning, retrospectives) to drive team efficiency and continuous improvement.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <span class="job-title">Senior Developer</span>
-                <span class="job-dates">08/2022 – 11/2022</span>
-            </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/check24.png" alt="" width="22" height="22">CHECK24 Vergleichsportal GmbH — Munich, Germany</div>
             <div class="job-team">Team: 4 backend, 2 PMs.</div>
-            <div class="job-stack">Stack: PHP 8.2, Symfony 4/5, MySQL, Redis.</div>
             <ul>
-                <li>Promoted from Backend Engineer to Team Lead, assuming full ownership of the company's critical delivery-tracking service.</li>
-                <li>Improved stability of the legacy system by systematically resolving long-standing bugs.</li>
-                <li>Contributed to a new strategic project in close collaboration with product managers.</li>
-                <li>Championed software quality through code reviews, improved testing, and modern PHP/Symfony practices.</li>
+                <li>Led a 4-person backend team owning the delivery-tracking service; partnered with PMs on requirements, backlog, and architecture.</li>
+                <li>Introduced Scrum; stabilized the legacy system and raised quality through code reviews and testing.</li>
             </ul>
         </div>
 
@@ -299,11 +333,8 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/infourok.svg" alt="" width="22" height="22">Infourok</div>
             <div class="job-team">Team: 12 backend, 5 frontend, 2 PMs, 2 designers.</div>
-            <div class="job-stack">Stack: PHP 8, Symfony 4, MySQL, Elastic Search.</div>
             <ul>
-                <li>Established the work of two new development teams; managed two product teams.</li>
-                <li>Built 3 teams mixed of frontend and backend developers.</li>
-                <li>Established the full workflow and automation for all teams; participated in tech-architecture decisions.</li>
+                <li>Built and managed 3 cross-functional product teams; set engineering workflow, automation, and architecture standards.</li>
             </ul>
         </div>
 
@@ -314,13 +345,10 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/homeapp.png" alt="" width="22" height="22">Homeapp</div>
             <div class="job-team">Team: 15 backend, 12 frontend, 5 QA, 4 DevOps, 4 PMs.</div>
-            <div class="job-stack">Stack: PHP 7/8, Symfony 4/5, PostgreSQL, Docker, Kubernetes, AWS.</div>
             <ul>
-                <li>Upscaled the engineering department from 5 to ~40 people; implemented product trios and merged design, product, and development into agile cross-functional teams.</li>
-                <li>Established a transparent development process that gave teams autonomy without losing high-level control of progress; implemented Scrum company-wide.</li>
-                <li>Collaborated with the CTPO on the product-development process; hired, developed teams, and scaled workflows.</li>
-                <li>Automated the developers' workflow (JIRA + GitHub + Drone CI + Helm); developed the tech platform on Docker, Kubernetes, Helm, and Drone CI.</li>
-                <li>Implemented a microservice architecture using PHP and Golang (AMQP and HTTP API); designed remote work, motivation, and KPI systems (including during COVID-19).</li>
+                <li>Scaled engineering from 5 to ~40 people; introduced product trios across design, product, and engineering.</li>
+                <li>Instituted Scrum, hiring, KPI/motivation, and remote operations; partnered with the CTPO on product process.</li>
+                <li>Built the company platform: microservices (PHP/Golang), Kubernetes, and CI/CD (JIRA, GitHub, Drone, Helm).</li>
             </ul>
         </div>
 
@@ -330,10 +358,8 @@
                 <span class="job-dates">04/2018 – 01/2019</span>
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/homeapp.png" alt="" width="22" height="22">Homeapp</div>
-            <div class="job-stack">Stack: PHP 7/8, Symfony 4/5, PostgreSQL.</div>
             <ul>
-                <li>Led a team of frontend and backend engineers; developed services using PHP 7, Symfony 4, PostgreSQL, and RabbitMQ.</li>
-                <li>Implemented Docker for deployment and containerization; continuous delivery with Google Kubernetes; continuous integration using Google Build, Docker, and Codeception.</li>
+                <li>Led frontend and backend engineers; introduced Docker, GKE continuous delivery, and CI.</li>
             </ul>
         </div>
 
@@ -343,11 +369,8 @@
                 <span class="job-dates">04/2017 – 04/2018</span>
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/balance.svg" alt="" width="22" height="22">Balance Platform</div>
-            <div class="job-stack">Cloud SaaS banking product (PHP, PostgreSQL, Symfony): car-loan and mortgage applications — document verification, call center, data enrichment from scans, and verification in external systems.</div>
-            <div class="job-stack">Stack: Symfony 3/4, PostgreSQL, PHP 7.1, RabbitMQ, Memcached, OpenStack SWIFT, Keycloak.</div>
             <ul>
-                <li>Participated in the implementation of the Scrum workflow using Git, Bitbucket, Ansible.</li>
-                <li>Developed and maintained Docker images for local development and for running backend tests (≈10× faster than local, 2–3× faster than prior CI).</li>
+                <li>Led KYC delivery on a cloud banking product; introduced Scrum and Docker-based CI (tests ~10× faster).</li>
             </ul>
         </div>
 
@@ -358,8 +381,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/dsl.svg" alt="" width="22" height="22">Digital Society Laboratory</div>
             <ul>
-                <li>Designed project architecture; managed a team of 3 developers on a high-pace project; Symfony expertise.</li>
-                <li>Developed the event-band asynchronous event-handling library.</li>
+                <li>Led 3 engineers and owned architecture on a high-pace Symfony project.</li>
             </ul>
         </div>
 
@@ -370,11 +392,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/bumble.png" alt="" width="22" height="22">Bumble Inc. — London Area, United Kingdom</div>
             <ul>
-                <li>Led an international team of developers and release engineers based in London.</li>
-                <li>Managed workflows across different time zones and cultures.</li>
-                <li>Improved release efficiency and reliability by developing custom automation tools and optimizing the delivery process.</li>
-                <li>Managed the end-to-end release cycle, ensuring on-time delivery of high-quality software.</li>
-                <li>Collaborated extensively with the product team to align all releases with user requirements and company strategy.</li>
+                <li>Led an international release-engineering team in London across time zones; automated and owned the end-to-end release cycle with Product.</li>
             </ul>
         </div>
 
@@ -385,9 +403,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/creara.svg" alt="" width="22" height="22">Creara Media</div>
             <ul>
-                <li>Managed the PHP department (5 teams, 15 developers).</li>
-                <li>Implemented CI/CD system (Git/Jira/TeamCity/php-tools).</li>
-                <li>Technical expertise; choosing common components and technologies.</li>
+                <li>Managed 5 PHP teams (15 developers); introduced Git/Jira/TeamCity CI/CD and shared platform components.</li>
             </ul>
         </div>
 
@@ -398,9 +414,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/creara.svg" alt="" width="22" height="22">Creara Media</div>
             <ul>
-                <li>Developed a new SMS billing system; contributed to company-wide components.</li>
-                <li>Took part in designing the CI/CD workflow (Jira/Git/TeamCity).</li>
-                <li>Worked on employee development plans.</li>
+                <li>Led billing delivery and people development; helped design company-wide CI/CD.</li>
             </ul>
         </div>
 
@@ -411,7 +425,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/most.svg" alt="" width="22" height="22">MOST Creative Club</div>
             <ul>
-                <li>Participated in web-department development.</li>
+                <li>Advised the web department on delivery and engineering practices.</li>
             </ul>
         </div>
 
@@ -422,7 +436,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/sbubnom.svg" alt="" width="22" height="22">Sbubnom web-studio — Moscow, Russia</div>
             <ul>
-                <li>Managed developer teams (3 teams, 12 developers). Developed about 20 promo-projects.</li>
+                <li>Managed 3 teams (12 developers); delivered ~20 promo projects.</li>
             </ul>
         </div>
 
@@ -433,7 +447,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/pernod.svg" alt="" width="22" height="22">Pernod Ricard</div>
             <ul>
-                <li>Developed IT systems for an interactive promo project.</li>
+                <li>Delivered IT systems for an interactive promo project.</li>
             </ul>
         </div>
 
@@ -444,7 +458,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/samsonite.svg" alt="" width="22" height="22">Samsonite</div>
             <ul>
-                <li>Developed IT systems for an interactive promo project.</li>
+                <li>Delivered IT systems for an interactive promo project.</li>
             </ul>
         </div>
 
@@ -455,9 +469,10 @@
             </div>
             <div class="job-company"><img class="job-logo" src="images/companies/renault.svg" alt="" width="22" height="22">Renault</div>
             <ul>
-                <li>Developed IT systems for an interactive promo project: hardware in dealership centers and a website for managing user-generated content during the promo period for a new Renault model.</li>
+                <li>Delivered dealership hardware and a UGC site for a new-model promo campaign.</li>
             </ul>
         </div>
+
     </section>
 
     <section class="certificates">
@@ -475,8 +490,7 @@
     <section class="education">
         <h2>Education</h2>
         <div class="education-item">
-            <div class="education-degree">Master of Business Administration (MBA) — Economical management</div>
-            <div class="education-school">National Research Nuclear University MEPhI</div>
+            <div class="education-degree">MBA</div>
             <div class="education-date">2007 – 2010</div>
         </div>
         <div class="education-item">
