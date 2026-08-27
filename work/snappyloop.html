@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vasil Kulakov at snappyloop — Staff Engineer — Munich · 2025 – present.">
+    <title>snappyloop: From 200 to 5,000 learners in three months — Vasil Kulakov</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="../index.html">Vasil Kulakov</a>
+        <nav class="site-nav">
+            <a class="active" href="../index.html#work">Work</a>
+            <a href="../blog/Vasil.Kulakov.pdf" target="_blank" rel="noopener">CV</a>
+            <a href="../index.html#contact">Contact</a>
+            <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+                <svg class="icon-moon" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.3A7.3 7.3 0 0 1 7.7 3a7.5 7.5 0 1 0 9.3 9.3Z"></path></svg>
+                <svg class="icon-sun" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.6"></circle><path d="M10 1.6v2M10 16.4v2M18.4 10h-2M3.6 10h-2M15.9 4.1l-1.4 1.4M5.5 14.5l-1.4 1.4M15.9 15.9l-1.4-1.4M5.5 5.5 4.1 4.1"></path></svg>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<div class="wrap crumb">
+    <a href="../index.html#companies"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6d675c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg> All companies</a>
+</div>
+
+<main class="case wrap">
+    <div class="case-kicker">snappyloop</div>
+    <h1 class="case-title">From 200 to 5,000 learners in three months</h1>
+    <div class="case-role">Staff Engineer &mdash; Munich &middot; 2025 &ndash; present</div>
+
+    <section class="block block-text">
+        <p class="block-lede">snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram and its Mini App.</p>
+        <p class="block-story">I built the platform: the infrastructure and security for the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.</p>
+        <p class="block-story">Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts on webhook acknowledgement latency and reply success rate, plus multi-city Playwright probes, watch it in production.</p>
+        <div class="block-stats">
+            <span class="stat"><strong>200 &rarr; 5k</strong> users in 3 months</span>
+            <span class="stat"><strong>20k RPS</strong> load-tested</span>
+        </div>
+        <div class="stack">
+            <span class="stack-label">Stack</span>
+            <span class="stack-chips"><span class="chip">Go</span><span class="chip">Symfony / PHP</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Telegram Bot API &amp; Mini Apps</span><span class="chip">Cloudflare Tunnel</span><span class="chip">OpenAI &amp; Gemini</span><span class="chip">Prometheus SLOs</span><span class="chip">Playwright</span><span class="chip">SOPS + age</span></span>
+        </div>
+    </section>
+
+    <section class="block block-media">
+        <span class="shade"><img class="" src="../images/showcases/snappyloop-1.jpg" alt="snappyloop" width="1200" height="630"></span>
+    </section>
+
+    <section class="block block-media">
+        <div class="shots">
+            <img src="../images/showcases/snappyloop-2.jpg" alt="snappyloop app screen">
+            <img src="../images/showcases/snappyloop-3.jpg" alt="snappyloop app screen">
+            <img src="../images/showcases/snappyloop-4.jpg" alt="snappyloop app screen">
+            <img src="../images/showcases/snappyloop-5.jpg" alt="snappyloop app screen">
+        </div>
+    </section>
+
+    <section class="block block-links">
+        <h2>Talks from this work</h2>
+        <div class="link-list">
+            <a href="../talks/bot-pod-problem.html">
+                <span class="link-label">One Bot, One Pod, One Problem at a Time</span>
+                <span class="link-note">Telegram bots on Kubernetes &mdash; webhooks, Redis, and SRE practices</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2456c4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+            <a href="../talks/ship.html">
+                <span class="link-label">Stop Prototyping, Start Shipping</span>
+                <span class="link-note">Python, Node.js, and Golang libraries for moving from prototype to production</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2456c4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <div class="case-nav">
+        <a href="vialytics.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6d675c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg><img src="../images/companies/vialytics.png" alt=""><span>vialytics</span></a>
+        <a href="check24.html"><span>CHECK24</span><img src="../images/companies/check24.png" alt=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6d675c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg></a>
+    </div>
+</main>
+
+<footer class="site-footer" id="contact">
+    <div class="wrap">
+        <div class="footer-main">
+            <div class="footer-title">Let&rsquo;s talk.</div>
+            <div class="footer-sub">Based in Munich &mdash; available for hybrid presence in any city in Germany.</div>
+            <div class="footer-actions">
+                <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliykulakov" rel="me">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <div>&copy; 2026 Vasil Kulakov &middot; Munich, Bavaria</div>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/cover-tilt.js"></script>
+<script src="../js/theme.js"></script>
+
+</body>
+</html>

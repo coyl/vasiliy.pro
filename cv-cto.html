@@ -8,203 +8,213 @@
     <title>Vasil Kulakov — VP of Engineering | Former CTO &amp; Head of Engineering | MBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --text: #1a1a1a;
-            --text-muted: #444;
-            --border: #ccc;
+            --ink: #1c1a17;
+            --body: #3f3a32;
+            --muted: #6d675c;
+            --border: #d9d2c6;
+            --accent: #2456c4;
+            --tint: #f4f1ea;
+            --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+            --serif: 'Source Serif 4', Georgia, serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 11pt;
-            line-height: 1.45;
-            color: var(--text);
+            font-family: var(--serif);
+            font-size: 10.5pt;
+            line-height: 1.42;
+            color: var(--body);
             max-width: 210mm;
             margin: 0 auto;
             padding: 12mm 15mm;
             background: #fff;
         }
-        h1 {
-            font-size: 22pt;
-            font-weight: 700;
-            margin-bottom: 2pt;
-            letter-spacing: -0.02em;
-        }
-        .tagline {
-            font-size: 10pt;
-            color: var(--text-muted);
-            margin-bottom: 8pt;
-            font-weight: 600;
-        }
-        .contact {
-            font-size: 10pt;
-            color: var(--text-muted);
-            margin-bottom: 14pt;
-        }
-        .contact span { display: block; }
+
+        /* header */
         .cv-header {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 16pt;
-            margin-bottom: 4pt;
-        }
-        .cv-header-photo {
-            flex-shrink: 0;
-        }
-        .cv-header-photo img {
-            display: block;
-            height: 200px;
-            width: auto;
-            object-fit: cover;
-            border-radius: 4pt;
+            gap: 14pt;
+            margin-bottom: 10pt;
         }
         .cv-header-left { flex: 1; min-width: 0; }
-        .cv-header-badges {
-            flex-shrink: 0;
+        h1 {
+            font-family: var(--sans);
+            font-size: 25pt;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--ink);
+            margin-bottom: 5pt;
         }
-        .cv-header-badges img {
-            display: block;
-            height: 52pt;
-            width: auto;
-        }
-        @media print {
-            .cv-header-badges img { height: 48pt; }
-        }
-        h2 {
-            font-size: 12pt;
+        .tagline {
+            font-family: var(--sans);
+            font-size: 8pt;
             font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin: 14pt 0 6pt;
-            padding-bottom: 2pt;
-            border-bottom: 1pt solid var(--border);
+            color: var(--accent);
+            margin-bottom: 7pt;
         }
+        .contact {
+            font-size: 9pt;
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+        .contact span { display: block; }
+        .cv-header-badges, .cv-header-photo { flex-shrink: 0; }
+        .cv-header-badges img { display: block; height: 46pt; width: auto; }
+        .cv-header-photo img {
+            display: block; height: 132pt; width: auto;
+            object-fit: cover; border-radius: 3pt;
+        }
+
+        /* section headings */
+        h2 {
+            font-family: var(--sans);
+            font-size: 9pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink);
+            margin: 13pt 0 6pt;
+            padding-bottom: 3pt;
+            border-bottom: 0.75pt solid var(--border);
+        }
+
+        /* credentials */
         .credentials {
             display: flex;
             flex-wrap: wrap;
-            gap: 6pt 18pt;
+            gap: 5pt;
             margin: 0 0 10pt;
-            padding: 8pt 10pt;
-            border: 1pt solid var(--border);
-            font-size: 9.5pt;
+            padding: 0;
+            border: 0;
         }
-        .credentials .cred-item strong {
-            font-weight: 600;
+        .credentials .cred-item {
+            font-family: var(--sans);
+            font-size: 8pt;
+            font-weight: 500;
+            color: var(--body);
+            padding: 3pt 8pt;
+            border: 0.75pt solid var(--border);
+            border-radius: 999pt;
+            background: #fff;
         }
-        .summary p {
-            margin: 0 0 8pt;
-        }
-        .summary ul, .certificates ul {
-            margin: 0 0 8pt;
-            padding-left: 1.2em;
-        }
-        .summary li, .certificates li {
-            margin-bottom: 3pt;
-        }
+        .credentials .cred-item strong { font-weight: 700; color: var(--ink); }
+
+        /* summary */
+        .summary p { margin: 0 0 6pt; }
+        .summary ul, .certificates ul { margin: 0 0 6pt; padding-left: 1.1em; }
+        .summary li, .certificates li { margin-bottom: 2.5pt; }
+        .summary li strong, .certificates .cert-label { color: var(--ink); font-weight: 600; }
+
+        /* recommendations */
         .recommendations .rec {
             display: flex;
             align-items: flex-start;
             gap: 8pt;
-            margin: 0 0 8pt;
-            font-size: 12pt;
-            line-height: 1.4;
+            margin: 0 0 7pt;
+            padding-left: 8pt;
+            border-left: 2pt solid var(--accent);
+            font-size: 10pt;
+            line-height: 1.38;
         }
         .recommendations .rec img {
-            width: 44pt;
-            height: 44pt;
-            object-fit: cover;
-            border-radius: 50%;
-            flex-shrink: 0;
-            background: #eee;
-            border: 0.5pt solid var(--border);
+            width: 34pt; height: 34pt;
+            object-fit: cover; border-radius: 50%;
+            flex-shrink: 0; background: var(--tint);
         }
         .recommendations .rec > div { min-width: 0; }
-        .recommendations .rec p {
-            margin: 0 0 2pt;
-            font-style: italic;
-        }
+        .recommendations .rec p { margin: 0 0 2pt; font-style: italic; color: var(--ink); }
         .recommendations .rec footer {
-            font-size: 10pt;
+            font-family: var(--sans);
+            font-size: 8pt;
             font-style: normal;
-            color: var(--text-muted);
+            color: var(--muted);
         }
-        .job {
-            margin-bottom: 12pt;
-            page-break-inside: avoid;
-        }
+
+        /* experience */
+        .job { margin-bottom: 9pt; page-break-inside: avoid; }
         .job-header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
             gap: 4pt;
-            margin-bottom: 2pt;
+            margin-bottom: 1pt;
         }
         .job-title {
+            font-family: var(--sans);
             font-weight: 700;
-            font-size: 11pt;
+            font-size: 10.5pt;
+            letter-spacing: -0.01em;
+            color: var(--ink);
         }
         .job-dates {
-            font-size: 9pt;
-            color: var(--text-muted);
+            font-family: var(--sans);
+            font-size: 8pt;
+            font-weight: 500;
+            color: var(--muted);
         }
         .job-company {
             display: flex;
             align-items: center;
-            gap: 6pt;
-            font-size: 10pt;
-            color: var(--text-muted);
-            margin-bottom: 4pt;
+            gap: 5pt;
+            font-family: var(--sans);
+            font-size: 8.5pt;
+            font-weight: 500;
+            color: var(--muted);
+            margin-bottom: 3pt;
         }
         .job-logo {
-            width: 16pt;
-            height: 16pt;
-            object-fit: contain;
-            border-radius: 3pt;
-            flex-shrink: 0;
-            background: #fff;
-            border: 0.5pt solid var(--border);
+            width: 14pt; height: 14pt;
+            object-fit: contain; border-radius: 2.5pt;
+            flex-shrink: 0; background: #fff;
         }
         .job-team, .job-stack {
-            font-size: 9pt;
-            color: var(--text-muted);
+            font-family: var(--sans);
+            font-size: 8pt;
+            color: var(--muted);
             margin-bottom: 2pt;
         }
-        .job ul {
-            padding-left: 1.2em;
-            margin: 0;
-        }
-        .job li {
-            margin-bottom: 2pt;
-        }
-        .education-item {
-            margin-bottom: 8pt;
-            page-break-inside: avoid;
-        }
-        .education-degree { font-weight: 600; }
-        .education-school { color: var(--text-muted); font-size: 10pt; }
-        .education-date { font-size: 9pt; color: var(--text-muted); }
-        .opensource ul {
-            padding-left: 1.2em;
-            margin: 0;
-        }
+        .job ul { padding-left: 1.1em; margin: 0; }
+        .job li { margin-bottom: 1.5pt; }
+
+        /* education & open source */
+        .education-item { margin-bottom: 6pt; page-break-inside: avoid; }
+        .education-degree { font-family: var(--sans); font-weight: 700; font-size: 10pt; color: var(--ink); }
+        .education-school { color: var(--muted); font-size: 9.5pt; }
+        .education-date { font-family: var(--sans); font-size: 8pt; color: var(--muted); }
+        .opensource ul { padding-left: 1.1em; margin: 0; }
+        .opensource li { margin-bottom: 1.5pt; }
         .opensource a {
-            color: #1967d2;
+            font-family: var(--sans);
+            color: var(--accent);
             text-decoration: none;
-            font-size: 10pt;
+            font-size: 9pt;
         }
+
         @media print {
-            body { padding: 10mm; }
+            body { padding: 10mm 12mm; font-size: 10pt; }
             .experience { break-before: page; page-break-before: always; }
             .recommendations { page-break-after: avoid; }
             .job { page-break-inside: avoid; }
             h2 { page-break-after: avoid; }
-            .job-logo, .recommendations .rec img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .job-logo,
+            .recommendations .rec img,
+            .recommendations .rec,
+            .credentials .cred-item,
+            .tagline,
+            .opensource a {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
-    </style>
+        </style>
 </head>
 <body>
     <header class="cv-header">
@@ -221,7 +231,7 @@
             <img src="image.png" alt="Google Cloud Professional Cloud Architect and Cloud DevOps Engineer" width="140" height="52">
         </div>
         <div class="cv-header-photo">
-            <img src="1769262056583.jpeg" alt="Vasil Kulakov" height="200">
+            <img src="images/vasil.jpg" alt="Vasil Kulakov" height="176">
         </div>
     </header>
 
@@ -331,7 +341,7 @@
                 <span class="job-title">Head of Development, SRM</span>
                 <span class="job-dates">09/2021 – 08/2022</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/infourok.svg" alt="" width="22" height="22">Infourok</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/infourok.png" alt="" width="22" height="22">Infourok</div>
             <div class="job-team">Team: 12 backend, 5 frontend, 2 PMs, 2 designers.</div>
             <ul>
                 <li>Built and managed 3 cross-functional product teams; set engineering workflow, automation, and architecture standards.</li>
@@ -368,7 +378,7 @@
                 <span class="job-title">KYC Lead Developer</span>
                 <span class="job-dates">04/2017 – 04/2018</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/balance.svg" alt="" width="22" height="22">Balance Platform</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/balance.png" alt="" width="22" height="22">Balance Platform</div>
             <ul>
                 <li>Led KYC delivery on a cloud banking product; introduced Scrum and Docker-based CI (tests ~10× faster).</li>
             </ul>
@@ -401,7 +411,7 @@
                 <span class="job-title">Head of Engineering</span>
                 <span class="job-dates">03/2012 – 09/2014</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/creara.svg" alt="" width="22" height="22">Creara Media</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/creara.png" alt="" width="22" height="22">Creara Media</div>
             <ul>
                 <li>Managed 5 PHP teams (15 developers); introduced Git/Jira/TeamCity CI/CD and shared platform components.</li>
             </ul>
@@ -412,7 +422,7 @@
                 <span class="job-title">Engineering Manager</span>
                 <span class="job-dates">11/2010 – 03/2012</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/creara.svg" alt="" width="22" height="22">Creara Media</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/creara.png" alt="" width="22" height="22">Creara Media</div>
             <ul>
                 <li>Led billing delivery and people development; helped design company-wide CI/CD.</li>
             </ul>
@@ -423,7 +433,7 @@
                 <span class="job-title">Web Development Consultant</span>
                 <span class="job-dates">01/2010 – 11/2011</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/most.svg" alt="" width="22" height="22">MOST Creative Club</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/most.png" alt="" width="22" height="22">MOST Creative Club</div>
             <ul>
                 <li>Advised the web department on delivery and engineering practices.</li>
             </ul>
@@ -434,7 +444,7 @@
                 <span class="job-title">Head of IT</span>
                 <span class="job-dates">01/2005 – 10/2010</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/sbubnom.svg" alt="" width="22" height="22">Sbubnom web-studio — Moscow, Russia</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/sbubnom.png" alt="" width="22" height="22">Sbubnom web-studio — Moscow, Russia</div>
             <ul>
                 <li>Managed 3 teams (12 developers); delivered ~20 promo projects.</li>
             </ul>
@@ -445,7 +455,7 @@
                 <span class="job-title">Engineering Manager (Contract)</span>
                 <span class="job-dates">05/2010 – 09/2010</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/pernod.svg" alt="" width="22" height="22">Pernod Ricard</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/pernod.png" alt="" width="22" height="22">Pernod Ricard</div>
             <ul>
                 <li>Delivered IT systems for an interactive promo project.</li>
             </ul>
@@ -456,7 +466,7 @@
                 <span class="job-title">Engineering Manager (Contract)</span>
                 <span class="job-dates">02/2010 – 07/2010</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="images/companies/samsonite.svg" alt="" width="22" height="22">Samsonite</div>
+            <div class="job-company"><img class="job-logo" src="images/companies/samsonite.png" alt="" width="22" height="22">Samsonite</div>
             <ul>
                 <li>Delivered IT systems for an interactive promo project.</li>
             </ul>

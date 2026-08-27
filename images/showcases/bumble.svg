@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img">
+<rect width="1200" height="630" fill="#f7f3eb"/>
+<line x1="100" y1="315" x2="1100" y2="315" stroke="#1c1a17" stroke-width="4" opacity="0.5"/>
+<line x1="150" y1="289" x2="150" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="150" cy="407" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="150" y1="385" x2="150" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="280" y1="289" x2="280" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="280" cy="223" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="280" y1="245" x2="280" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="410" y1="289" x2="410" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="410" cy="407" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="410" y1="385" x2="410" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="540" y1="289" x2="540" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="540" cy="223" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="540" y1="245" x2="540" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="670" y1="289" x2="670" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="670" cy="407" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="670" y1="385" x2="670" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="800" y1="289" x2="800" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="800" cy="223" r="30" fill="#2456c4" opacity="1"/>
+<line x1="800" y1="245" x2="800" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="930" y1="289" x2="930" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="930" cy="407" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="930" y1="385" x2="930" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+<line x1="1060" y1="289" x2="1060" y2="341" stroke="#1c1a17" stroke-width="3" opacity="0.45"/>
+<circle cx="1060" cy="223" r="18" fill="#1c1a17" opacity="0.5"/>
+<line x1="1060" y1="245" x2="1060" y2="315" stroke="#1c1a17" stroke-width="2" opacity="0.3"/>
+
+</svg>
