@@ -2,6 +2,7 @@
 // Run from the repo root: node tools/build-work.mjs
 // The <main class="case"> block is what index.html lifts into the case overlay.
 import { writeFileSync, mkdirSync } from 'node:fs';
+import { UI, QUOTE_ROLES, CASES as T } from './work-i18n.mjs';
 
 const QUOTES = {
   michael: { img: 'michael.jpg', name: 'Michael Erhard', role: 'Bereichsleiter &middot; managed Vasil directly', text: 'Exceptional as team lead and as a developer. He prioritised his team&rsquo;s well-being and was always willing to go the extra mile.' },
@@ -41,8 +42,8 @@ const CASES = [
     links: {
       title: 'Talks from this work',
       items: [
-        { href: '../talks/bot-pod-problem.html', label: 'One Bot, One Pod, One Problem at a Time', note: 'Telegram bots on Kubernetes &mdash; webhooks, Redis, and SRE practices' },
-        { href: '../talks/ship.html', label: 'Stop Prototyping, Start Shipping', note: 'Python, Node.js, and Golang libraries for moving from prototype to production' },
+        { href: 'talks/bot-pod-problem.html', label: 'One Bot, One Pod, One Problem at a Time', note: 'Telegram bots on Kubernetes &mdash; webhooks, Redis, and SRE practices' },
+        { href: 'talks/ship.html', label: 'Stop Prototyping, Start Shipping', note: 'Python, Node.js, and Golang libraries for moving from prototype to production' },
       ],
     },
   },
@@ -134,8 +135,8 @@ const arrow = (dir) => dir === 'prev'
 
 const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&mdash;/g, '—').replace(/&rarr;/g, '→').replace(/&middot;/g, '·').replace(/&ndash;/g, '–').replace(/&times;/g, '×').replace(/&rsquo;/g, '’').replace(/&#337;/g, 'ő').replace(/&#233;/g, 'é');
 
-const page = (c, prev, next) => `<!DOCTYPE html>
-<html lang="en">
+const page = (c, prev, next, lang, ui, up, home) => `<!DOCTYPE html>
+<html lang="${lang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,19 +145,19 @@ const page = (c, prev, next) => `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="${up}css/site.css">
     <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 
 <header class="site-header">
     <div class="wrap">
-        <a class="brand" href="../index.html">Vasil Kulakov</a>
+        <a class="brand" href="${home}">Vasil Kulakov</a>
         <nav class="site-nav">
-            <a class="active" href="../index.html#work">Work</a>
-            <a href="../blog/Vasil.Kulakov.pdf" target="_blank" rel="noopener">CV</a>
-            <a href="../index.html#contact">Contact</a>
-            <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+            <a class="active" href="${home}#work">${ui.nav.work}</a>
+            <a href="${up}blog/Vasil.Kulakov.pdf" target="_blank" rel="noopener">${ui.nav.cv}</a>
+            <a href="${home}#contact">${ui.nav.contact}</a>
+            <button class="theme-toggle" type="button" aria-label="${ui.switchTheme}" title="${ui.switchTheme}">
                 <svg class="icon-moon" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.3A7.3 7.3 0 0 1 7.7 3a7.5 7.5 0 1 0 9.3 9.3Z"></path></svg>
                 <svg class="icon-sun" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.6"></circle><path d="M10 1.6v2M10 16.4v2M18.4 10h-2M3.6 10h-2M15.9 4.1l-1.4 1.4M5.5 14.5l-1.4 1.4M15.9 15.9l-1.4-1.4M5.5 5.5 4.1 4.1"></path></svg>
             </button>
@@ -165,7 +166,7 @@ const page = (c, prev, next) => `<!DOCTYPE html>
 </header>
 
 <div class="wrap crumb">
-    <a href="../index.html#companies">${arrow('prev')} All companies</a>
+    <a href="${home}#companies">${arrow('prev')} ${ui.allCompanies}</a>
 </div>
 
 <main class="case wrap">
@@ -180,17 +181,17 @@ ${c.story.map((p) => `        <p class="block-story">${p}</p>`).join('\n')}
 ${(c.stats ?? [{ value: c.metric, label: c.metricLabel }]).map((st) => `            <span class="stat"><strong>${st.value}</strong> ${st.label}</span>`).join('\n')}
 ${c.facts ? `            <span class="stat-facts">${c.facts}</span>\n` : ''}        </div>
 ${c.stack ? `        <div class="stack">
-            <span class="stack-label">Stack</span>
+            <span class="stack-label">${ui.stack}</span>
             <span class="stack-chips">${c.stack.map((t) => `<span class="chip">${t}</span>`).join('')}</span>
         </div>
 ` : ''}    </section>
 
     <section class="block block-media">
-        <span class="shade"><img class="${c.artPos === 'center' ? 'pos-center' : ''}" src="../images/showcases/${c.art ?? `${c.slug}.svg`}" alt="${strip(c.name)}" width="1200" height="630"></span>
+        <span class="shade"><img class="${c.artPos === 'center' ? 'pos-center' : ''}" src="${up}images/showcases/${c.art ?? `${c.slug}.svg`}" alt="${strip(c.name)}" width="1200" height="630"></span>
     </section>
 ${c.gallery && c.gallery.length === 1 ? `
     <section class="block block-media">
-        <img${(typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).fit === 'natural' ? ' class="natural"' : ((typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).pos === 'center' ? ' class="pos-center"' : '')} src="../images/showcases/${typeof c.gallery[0] === 'string' ? c.gallery[0] : c.gallery[0].src}" alt="${typeof c.gallery[0] === 'string' ? `${strip(c.name)} product screen` : (c.gallery[0].alt ?? `${strip(c.name)} product screen`)}">
+        <img${(typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).fit === 'natural' ? ' class="natural"' : ((typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).pos === 'center' ? ' class="pos-center"' : '')} src="${up}images/showcases/${typeof c.gallery[0] === 'string' ? c.gallery[0] : c.gallery[0].src}" alt="${typeof c.gallery[0] === 'string' ? `${strip(c.name)} product screen` : (c.gallery[0].alt ?? `${strip(c.name)} product screen`)}">
     </section>
 ` : ''}${c.gallery && c.gallery.length > 1 ? `
     <section class="block block-media">
@@ -198,21 +199,21 @@ ${c.gallery && c.gallery.length === 1 ? `
 ${c.gallery.map((g) => {
   const it = typeof g === 'string' ? { src: g } : g;
   const cls = it.pos === 'center' ? ' class="pos-center"' : '';
-  return `            <img${cls} src="../images/showcases/${it.src}" alt="${it.alt ?? `${strip(c.name)} product screen`}">`;
+  return `            <img${cls} src="${up}images/showcases/${it.src}" alt="${it.alt ?? `${strip(c.name)} product screen`}">`;
 }).join('\n')}
         </div>
     </section>
 ` : ''}${c.shots && c.shots.length ? `
     <section class="block block-media">
         <div class="shots">
-${c.shots.map((g) => `            <img src="../images/showcases/${g}" alt="${strip(c.name)} app screen">`).join('\n')}
+${c.shots.map((g) => `            <img src="${up}images/showcases/${g}" alt="${strip(c.name)} app screen">`).join('\n')}
         </div>
     </section>
 ` : ''}${c.links ? `
     <section class="block block-links">
         <h2>${c.links.title}</h2>
         <div class="link-list">
-${c.links.items.map((l) => `            <a href="${l.href}">
+${c.links.items.map((l) => `            <a href="${up}${l.href}">
                 <span class="link-label">${l.label}</span>
                 <span class="link-note">${l.note}</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
@@ -221,15 +222,15 @@ ${c.links.items.map((l) => `            <a href="${l.href}">
     </section>
 ` : ''}${c.quotes && c.quotes.length ? `
     <section class="block block-quotes">
-        <h2>From the team</h2>
+        <h2>${ui.fromTheTeam}</h2>
         <div class="case-quotes">
 ${c.quotes.map((q) => {
   const Q = QUOTES[q];
   return `            <div class="case-quote">
                 <blockquote>${Q.text}</blockquote>
                 <div class="rec-author">
-                    <img src="../images/recommenders/${Q.img}" alt="">
-                    <div><strong>${Q.name}</strong> <span>&mdash; ${Q.role}</span></div>
+                    <img src="${up}images/recommenders/${Q.img}" alt="">
+                    <div><strong>${Q.name}</strong> <span>&mdash; ${(QUOTE_ROLES[lang] && QUOTE_ROLES[lang][q]) || Q.role}</span></div>
                 </div>
             </div>`;
 }).join('\n')}
@@ -237,16 +238,16 @@ ${c.quotes.map((q) => {
     </section>
 ` : ''}
     <div class="case-nav">
-        <a href="${prev.slug}.html">${arrow('prev')}<img src="../images/companies/${prev.logo}" alt=""><span>${prev.name}</span></a>
-        <a href="${next.slug}.html"><span>${next.name}</span><img src="../images/companies/${next.logo}" alt="">${arrow('next')}</a>
+        <a href="${prev.slug}.html">${arrow('prev')}<img src="${up}images/companies/${prev.logo}" alt=""><span>${prev.name}</span></a>
+        <a href="${next.slug}.html"><span>${next.name}</span><img src="${up}images/companies/${next.logo}" alt="">${arrow('next')}</a>
     </div>
 </main>
 
 <footer class="site-footer" id="contact">
     <div class="wrap">
         <div class="footer-main">
-            <div class="footer-title">Let&rsquo;s talk.</div>
-            <div class="footer-sub">Based in Munich &mdash; available for hybrid presence in any city in Germany.</div>
+            <div class="footer-title">${ui.footerTitle}</div>
+            <div class="footer-sub">${ui.footerSub}</div>
             <div class="footer-actions">
                 <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
                 <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliykulakov" rel="me">LinkedIn</a>
@@ -258,22 +259,52 @@ ${c.quotes.map((q) => {
     </div>
 </footer>
 
-<script src="../js/cover-tilt.js"></script>
-<script src="../js/theme.js"></script>
+<script src="${up}js/cover-tilt.js"></script>
+<script src="${up}js/theme.js"></script>
 
 </body>
 </html>
 `;
 
-mkdirSync('work', { recursive: true });
+const EN_UI = {
+  nav: { work: 'Work', cv: 'CV', contact: 'Contact' },
+  allCompanies: 'All companies', fromTheTeam: 'From the team',
+  stack: 'Stack', switchTheme: 'Switch theme',
+  footerTitle: 'Let&rsquo;s talk.',
+  footerSub: 'Based in Munich &mdash; available for hybrid presence in any city in Germany.',
+};
+
+// merge a case with its translation; arrays of objects merge element-wise
+function localise(c, lang) {
+  if (lang === 'en') return c;
+  const t = (T[lang] || {})[c.slug] || {};
+  const out = { ...c, ...t };
+  if (c.stats && t.stats) out.stats = c.stats.map((st, i) => ({ ...st, ...(t.stats[i] || {}) }));
+  if (c.links && t.links) {
+    out.links = {
+      ...c.links,
+      title: t.links.title ?? c.links.title,
+      items: c.links.items.map((it, i) => ({ ...it, note: (t.links.notes || [])[i] ?? it.note })),
+    };
+  }
+  return out;
+}
+
 const VISIBLE = CASES.filter((c) => !c.hidden);
-CASES.forEach((c) => {
-  // a hidden case still builds (direct URL keeps working) but sits outside the chain
-  const ring = VISIBLE;
-  const i = ring.findIndex((x) => x.slug === c.slug);
-  const at = i === -1 ? 0 : i;
-  const prev = ring[(at - 1 + ring.length) % ring.length];
-  const next = ring[(at + 1) % ring.length];
-  writeFileSync(`work/${c.slug}.html`, page(c, prev, next));
-  console.log(`work/${c.slug}.html${c.hidden ? ' (unlinked)' : ''}`);
-});
+for (const lang of ['en', 'de', 'ru', 'pl']) {
+  const dir = lang === 'en' ? 'work' : `work/${lang}`;
+  const up = lang === 'en' ? '../' : '../../';
+  const home = lang === 'en' ? '../index.html' : `../../${lang}.html`;
+  const ui = lang === 'en' ? EN_UI : UI[lang];
+  mkdirSync(dir, { recursive: true });
+  CASES.forEach((c) => {
+    // a hidden case still builds (direct URL keeps working) but sits outside the chain
+    const ring = VISIBLE;
+    const i = ring.findIndex((x) => x.slug === c.slug);
+    const at = i === -1 ? 0 : i;
+    const prev = localise(ring[(at - 1 + ring.length) % ring.length], lang);
+    const next = localise(ring[(at + 1) % ring.length], lang);
+    writeFileSync(`${dir}/${c.slug}.html`, page(localise(c, lang), prev, next, lang, ui, up, home));
+  });
+  console.log(`${dir}/ — ${CASES.length} cases`);
+}

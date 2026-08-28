@@ -42,6 +42,8 @@ const LANGS = {
       '&mdash; Frontend Engineer, Homeapp &middot; reported to Vasil': '&mdash; Frontend Engineer, Homeapp &middot; berichtete an Vasil',
       '&mdash; Team Lead, CHECK24 &middot; reported to Vasil': '&mdash; Team Lead, CHECK24 &middot; berichtete an Vasil',
       '&mdash; Team Lead Software Developer, CHECK24 &middot; worked across teams': '&mdash; Team Lead Software Developer, CHECK24 &middot; teamübergreifende Zusammenarbeit',
+      '6 mo': '6 Mon.',
+      '3 teams': '3 Teams',
       'Switch theme': 'Design wechseln',
     },
   },
@@ -78,6 +80,8 @@ const LANGS = {
       '&mdash; Frontend Engineer, Homeapp &middot; reported to Vasil': '&mdash; Frontend Engineer, Homeapp &middot; работал в команде Василия',
       '&mdash; Team Lead, CHECK24 &middot; reported to Vasil': '&mdash; Team Lead, CHECK24 &middot; работал в команде Василия',
       '&mdash; Team Lead Software Developer, CHECK24 &middot; worked across teams': '&mdash; Team Lead Software Developer, CHECK24 &middot; смежная команда',
+      '6 mo': '6 мес.',
+      '3 teams': '3 команды',
       'Switch theme': 'Сменить тему',
     },
   },
@@ -114,6 +118,8 @@ const LANGS = {
       '&mdash; Frontend Engineer, Homeapp &middot; reported to Vasil': '&mdash; Frontend Engineer, Homeapp &middot; pracował w zespole Vasila',
       '&mdash; Team Lead, CHECK24 &middot; reported to Vasil': '&mdash; Team Lead, CHECK24 &middot; pracował w zespole Vasila',
       '&mdash; Team Lead Software Developer, CHECK24 &middot; worked across teams': '&mdash; Team Lead Software Developer, CHECK24 &middot; współpraca między zespołami',
+      '6 mo': '6 mies.',
+      '3 teams': '3 zespoły',
       'Switch theme': 'Zmień motyw',
     },
   },
@@ -151,6 +157,8 @@ for (const [code, cfg] of Object.entries(LANGS)) {
     if (!out.includes(from)) { console.warn('  ! missing in source (' + code + '): ' + from.slice(0, 60)); continue; }
     out = out.split(from).join(to);
   }
+  // the tiles and the company wall open this language's showcases
+  out = out.replace(/href="work\//g, 'href="work/' + code + '/');
   out = out.replace(/<div class="lang-switch">.*?<\/div>/, '<div class="lang-switch">' + langLinks(code) + '</div>');
   writeFileSync(code + '.html', out);
   console.log(code + '.html');
