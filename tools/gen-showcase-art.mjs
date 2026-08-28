@@ -1,4 +1,4 @@
-// Generates the abstract case artwork under images/showcases/.
+// Generates the abstract case artwork under i/s/ for the cases that have no photo.
 // Run from the repo root: node tools/gen-showcase-art.mjs
 import { writeFileSync, mkdirSync } from 'node:fs';
 
@@ -174,8 +174,13 @@ const arts = {
   },
 };
 
-mkdirSync('images/showcases', { recursive: true });
+mkdirSync('i/s', { recursive: true });
+// only the cases still shown without a photograph
+const USED = { homeapp: 'ha', snappyloop: 'sl', check24: 'c24', infourok: 'iu', balance: 'bal',
+               bumble: 'bmb', vialytics: 'via', dsl: 'dsl', creara: 'cre' };
 for (const [name, fn] of Object.entries(arts)) {
-  writeFileSync(`images/showcases/${name}.svg`, wrap(fn()));
-  console.log(`images/showcases/${name}.svg`);
+  const short = USED[name];
+  if (!short) continue;
+  writeFileSync(`i/s/${short}.svg`, wrap(fn()));
+  console.log(`i/s/${short}.svg`);
 }

@@ -5,10 +5,13 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { UI, QUOTE_ROLES, CASES as T } from './work-i18n.mjs';
 
 const QUOTES = {
-  michael: { img: 'michael.jpg', name: 'Michael Erhard', role: 'Bereichsleiter &middot; managed Vasil directly', text: 'Exceptional as team lead and as a developer. He prioritised his team&rsquo;s well-being and was always willing to go the extra mile.' },
-  gergely: { img: 'gergely.jpg', name: 'Gergely T&#337;k&#233;si', role: 'Team Lead &middot; reported to Vasil', text: 'An exceptional team leader who delivers high-quality projects on time and fosters a positive, inclusive team.' },
-  belma: { img: 'belma.jpg', name: 'Belma Herenda', role: 'Team Lead Software Developer &middot; worked across teams', text: 'Committed to the goal even under a tight deadline &mdash; passionate about coding, with a calm, can-do attitude every company should be happy to have.' },
-  andrei: { img: 'andrei.jpg', name: 'Andrei Romashin', role: 'Frontend Engineer &middot; reported to Vasil', text: 'Under his leadership the department grew from 5 to 15. He took the product to MVP quickly and established Agile/Scrum and a full delivery lifecycle.' },
+  michael: { img: 'mik.jpg', name: 'Michael Erhard', role: 'Bereichsleiter &middot; managed Vasil directly', text: 'Exceptional as team lead and as a developer. He prioritised his team&rsquo;s well-being and was always willing to go the extra mile.' },
+  gergely: { img: 'ger.jpg', name: 'Gergely T&#337;k&#233;si', role: 'Team Lead &middot; reported to Vasil', text: 'An exceptional team leader who delivers high-quality projects on time and fosters a positive, inclusive team.' },
+  belma: { img: 'bel.jpg', name: 'Belma Herenda', role: 'Team Lead Software Developer &middot; worked across teams', text: 'Committed to the goal even under a tight deadline &mdash; passionate about coding, with a calm, can-do attitude every company should be happy to have.' },
+  andrei: { img: 'and.jpg', name: 'Andrei Romashin', role: 'Frontend Engineer &middot; reported to Vasil', text: 'Under his leadership the department grew from 5 to 15. He took the product to MVP quickly and established Agile/Scrum and a full delivery lifecycle.' },
+  tariq: { img: 'tar.jpg', name: 'Tariq Hashim', role: 'Software Engineer &middot; reported to Vasil', text: 'An exceptional leader, who demonstrated comprehensive understanding of the Symfony framework and provided valuable recommendations for delivering high-quality software. He also introduced Agile methodology that improved our team&rsquo;s productivity and efficiency.' },
+  ivan: { img: 'iva.jpg', name: 'Ivan Ihnatiev', role: 'Frontend Developer &middot; reported to Vasil', text: 'Great mentor, leader and bright person!' },
+  leila: { img: null, name: 'Leila Berezovskaya', role: 'QA &middot; worked on the same team', text: 'He definitely knows how to rally the team and protect its interests. I think he has all the qualities of a great leader.' },
 };
 
 // Reverse-chronological — prev/next navigation follows this order.
@@ -16,7 +19,7 @@ const QUOTES = {
 // metric/metricLabel (stat strip), facts, art, gallery, quotes.
 const CASES = [
   {
-    slug: 'vialytics', name: 'vialytics', logo: 'vialytics.png',
+    slug: 'vialytics', art: 'via.svg', name: 'vialytics', logo: 'via.png',
     role: 'Senior Software Engineer &mdash; Munich &middot; Remote &middot; 2026 &ndash; present',
     title: 'Owning the services that grade the roads',
     lede: 'vialytics helps cities manage their roads with AI &mdash; and the grading services are where the product&rsquo;s judgment lives.',
@@ -24,9 +27,9 @@ const CASES = [
     metric: 'Now', metricLabel: 'function-critical grading services',
   },
   {
-    slug: 'snappyloop', name: 'snappyloop', logo: 'snappyloop.svg',
-    art: 'snappyloop-1.jpg',
-    shots: ['snappyloop-2.jpg', 'snappyloop-3.jpg', 'snappyloop-4.jpg', 'snappyloop-5.jpg'],
+    slug: 'snappyloop', name: 'snappyloop', logo: 'sl.svg',
+    art: 'sl1.jpg',
+    shots: ['sl2.jpg', 'sl3.jpg', 'sl4.jpg', 'sl5.jpg'],
     role: 'Staff Engineer &mdash; Munich &middot; 2025 &ndash; present',
     title: 'From 200 to 5,000 learners in three months',
     lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram and its Mini App.',
@@ -48,7 +51,7 @@ const CASES = [
     },
   },
   {
-    slug: 'check24', name: 'CHECK24', logo: 'check24.png',
+    slug: 'check24', name: 'CHECK24', logo: 'c24.png',
     role: 'Engineering Manager &middot; Development Team Lead &mdash; Munich &middot; 2022 &ndash; 2025',
     title: 'Modernizing the backend in six months',
     lede: 'CHECK24 is Germany&rsquo;s largest comparison portal. The product I joined ran on a legacy stack and bare metal.',
@@ -58,15 +61,15 @@ const CASES = [
     ],
     metric: '6 mo', metricLabel: 'Laminas &rarr; Doctrine, award-winning',
     facts: 'Team as Team Lead: 4 backend, 2 PMs.',
-    art: 'check24-3.jpg',
+    art: 'c243.jpg',
     gallery: [
-      { src: 'check24-2.jpg', alt: 'CHECK24 Leitlinien Award 2023 presented to Vasil Kulakov', fit: 'natural' },
+      { src: 'c242.jpg', alt: 'CHECK24 Leitlinien Award 2023 presented to Vasil Kulakov', fit: 'natural' },
     ],
-    quotes: ['michael', 'gergely', 'belma'],
+    quotes: ['michael', 'gergely', 'belma', 'tariq'],
   },
   {
-    slug: 'infourok', name: 'Infourok', logo: 'infourok.png',
-    art: 'infourok-1.jpg',
+    slug: 'infourok', name: 'Infourok', logo: 'iu.png',
+    art: 'iu1.jpg',
     role: 'Head of Development, SRM &mdash; 2021 &ndash; 2022',
     title: '3 new teams in 2 months',
     lede: 'Infourok is one of the largest education platforms in its market; IU.RU gathers its AI tools in one place.',
@@ -75,9 +78,9 @@ const CASES = [
     facts: 'Team: 12 backend, 5 frontend, 2 PMs, 2 designers.',
   },
   {
-    slug: 'homeapp', name: 'Homeapp', logo: 'homeapp.png',
-    art: 'homeapp-1.jpg',
-    gallery: ['homeapp-2.jpg', 'homeapp-3.jpg', 'homeapp-4.jpg'],
+    slug: 'homeapp', name: 'Homeapp', logo: 'ha.png',
+    art: 'ha1.jpg',
+    gallery: ['ha2.jpg', 'ha3.jpg', 'ha4.jpg'],
     role: 'VP of Engineering &middot; Engineering Manager &mdash; 2018 &ndash; 2021',
     title: 'From 5 engineers to a 40-person org',
     lede: 'Homeapp is a real-estate platform that pairs sellers with experts: appraisal reports, advertising analytics, sold-property data.',
@@ -87,11 +90,11 @@ const CASES = [
     ],
     metric: '5 &rarr; 40', metricLabel: 'engineers scaled',
     facts: 'Team: 15 backend, 12 frontend, 5 QA, 4 DevOps, 4 PMs. Stack: PHP/Golang, Kubernetes, JIRA, GitHub, Drone, Helm.',
-    quotes: ['andrei'],
+    quotes: ['andrei', 'leila', 'ivan'],
   },
   {
     // hidden: temporarily unlinked from the wall and prev/next (page still builds)
-    slug: 'balance', hidden: true, name: 'Balance Platform', logo: 'balance.png',
+    slug: 'balance', art: 'bal.svg', hidden: true, name: 'Balance Platform', logo: 'bal.png',
     role: 'KYC Lead Developer &mdash; 2017 &ndash; 2018',
     title: 'KYC for a cloud bank, tests ten times faster',
     lede: 'Balance Platform builds cloud banking products &mdash; and KYC is the gate every customer passes through.',
@@ -100,7 +103,7 @@ const CASES = [
   },
   {
     // hidden: temporarily unlinked from the wall and prev/next (page still builds)
-    slug: 'dsl', hidden: true, name: 'Digital Society Laboratory', logo: 'dsl.svg',
+    slug: 'dsl', art: 'dsl.svg', hidden: true, name: 'Digital Society Laboratory', logo: 'dsl.svg',
     role: 'Symfony Team Lead &mdash; 2015 &ndash; 2017',
     title: 'Owning architecture at a high pace',
     lede: 'Digital Society Laboratory ran a high-pace Symfony project.',
@@ -108,7 +111,7 @@ const CASES = [
     metric: '3', metricLabel: 'engineers led',
   },
   {
-    slug: 'bumble', name: 'Bumble Inc.', logo: 'bumble.png',
+    slug: 'bumble', art: 'bmb.svg', name: 'Bumble Inc.', logo: 'bmb.png',
     role: 'Engineering Manager &mdash; London Area, United Kingdom &middot; 2014 &ndash; 2015',
     title: 'Releases across time zones',
     lede: 'Bumble&rsquo;s products ship continuously, from teams spread around the world.',
@@ -116,7 +119,7 @@ const CASES = [
     metric: 'E2E', metricLabel: 'release cycle owned',
   },
   {
-    slug: 'creara', name: 'Creara Media', logo: 'creara.png',
+    slug: 'creara', art: 'cre.svg', name: 'Creara Media', logo: 'cre.png',
     role: 'Head of Engineering &middot; Engineering Manager &mdash; 2010 &ndash; 2014',
     title: 'Five teams, one platform',
     lede: 'Creara Media ran five PHP teams &mdash; fifteen developers &mdash; shipping in parallel.',
@@ -187,11 +190,11 @@ ${c.stack ? `        <div class="stack">
 ` : ''}    </section>
 
     <section class="block block-media">
-        <span class="shade"><img class="${c.artPos === 'center' ? 'pos-center' : ''}" src="${up}images/showcases/${c.art ?? `${c.slug}.svg`}" alt="${strip(c.name)}" width="1200" height="630"></span>
+        <span class="shade"><img class="${c.artPos === 'center' ? 'pos-center' : ''}" src="${up}i/s/${c.art ?? `${c.slug}.svg`}" alt="${strip(c.name)}" width="1200" height="630"></span>
     </section>
 ${c.gallery && c.gallery.length === 1 ? `
     <section class="block block-media">
-        <img${(typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).fit === 'natural' ? ' class="natural"' : ((typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).pos === 'center' ? ' class="pos-center"' : '')} src="${up}images/showcases/${typeof c.gallery[0] === 'string' ? c.gallery[0] : c.gallery[0].src}" alt="${typeof c.gallery[0] === 'string' ? `${strip(c.name)} product screen` : (c.gallery[0].alt ?? `${strip(c.name)} product screen`)}">
+        <img${(typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).fit === 'natural' ? ' class="natural"' : ((typeof c.gallery[0] === 'string' ? {} : c.gallery[0]).pos === 'center' ? ' class="pos-center"' : '')} src="${up}i/s/${typeof c.gallery[0] === 'string' ? c.gallery[0] : c.gallery[0].src}" alt="${typeof c.gallery[0] === 'string' ? `${strip(c.name)} product screen` : (c.gallery[0].alt ?? `${strip(c.name)} product screen`)}">
     </section>
 ` : ''}${c.gallery && c.gallery.length > 1 ? `
     <section class="block block-media">
@@ -199,14 +202,14 @@ ${c.gallery && c.gallery.length === 1 ? `
 ${c.gallery.map((g) => {
   const it = typeof g === 'string' ? { src: g } : g;
   const cls = it.pos === 'center' ? ' class="pos-center"' : '';
-  return `            <img${cls} src="${up}images/showcases/${it.src}" alt="${it.alt ?? `${strip(c.name)} product screen`}">`;
+  return `            <img${cls} src="${up}i/s/${it.src}" alt="${it.alt ?? `${strip(c.name)} product screen`}">`;
 }).join('\n')}
         </div>
     </section>
 ` : ''}${c.shots && c.shots.length ? `
     <section class="block block-media">
         <div class="shots">
-${c.shots.map((g) => `            <img src="${up}images/showcases/${g}" alt="${strip(c.name)} app screen">`).join('\n')}
+${c.shots.map((g) => `            <img src="${up}i/s/${g}" alt="${strip(c.name)} app screen">`).join('\n')}
         </div>
     </section>
 ` : ''}${c.links ? `
@@ -229,7 +232,7 @@ ${c.quotes.map((q) => {
   return `            <div class="case-quote">
                 <blockquote>${Q.text}</blockquote>
                 <div class="rec-author">
-                    <img src="${up}images/recommenders/${Q.img}" alt="">
+                    ${Q.img ? `<img src="${up}i/r/${Q.img}" alt="">` : `<span class="rec-initials" aria-hidden="true">${strip(Q.name).split(' ').map((w) => w[0]).join('')}</span>`}
                     <div><strong>${Q.name}</strong> <span>&mdash; ${(QUOTE_ROLES[lang] && QUOTE_ROLES[lang][q]) || Q.role}</span></div>
                 </div>
             </div>`;
@@ -238,8 +241,8 @@ ${c.quotes.map((q) => {
     </section>
 ` : ''}
     <div class="case-nav">
-        <a href="${prev.slug}.html">${arrow('prev')}<img src="${up}images/companies/${prev.logo}" alt=""><span>${prev.name}</span></a>
-        <a href="${next.slug}.html"><span>${next.name}</span><img src="${up}images/companies/${next.logo}" alt="">${arrow('next')}</a>
+        <a href="${prev.slug}.html">${arrow('prev')}<img src="${up}i/c/${prev.logo}" alt=""><span>${prev.name}</span></a>
+        <a href="${next.slug}.html"><span>${next.name}</span><img src="${up}i/c/${next.logo}" alt="">${arrow('next')}</a>
     </div>
 </main>
 

@@ -42,18 +42,27 @@ export const QUOTE_ROLES = {
     gergely: 'Team Lead &middot; berichtete an Vasil',
     belma: 'Team Lead Software Developer &middot; teamübergreifende Zusammenarbeit',
     andrei: 'Frontend Engineer &middot; berichtete an Vasil',
+    tariq: 'Software Engineer &middot; berichtete an Vasil',
+    ivan: 'Frontend-Entwickler &middot; berichtete an Vasil',
+    leila: 'QA &middot; im selben Team gearbeitet',
   },
   ru: {
     michael: 'Bereichsleiter &middot; непосредственный руководитель',
     gergely: 'Team Lead &middot; работал в команде Василия',
     belma: 'Team Lead Software Developer &middot; смежная команда',
     andrei: 'Frontend Engineer &middot; работал в команде Василия',
+    tariq: 'Software Engineer &middot; работал в команде Василия',
+    ivan: 'Frontend-разработчик &middot; работал в команде Василия',
+    leila: 'QA &middot; работала в одной команде',
   },
   pl: {
     michael: 'Bereichsleiter &middot; bezpośredni przełożony',
     gergely: 'Team Lead &middot; pracował w zespole Vasila',
     belma: 'Team Lead Software Developer &middot; współpraca między zespołami',
     andrei: 'Frontend Engineer &middot; pracował w zespole Vasila',
+    tariq: 'Software Engineer &middot; pracował w zespole Vasila',
+    ivan: 'Programista frontend &middot; pracował w zespole Vasila',
+    leila: 'QA &middot; pracowała w tym samym zespole',
   },
 };
 

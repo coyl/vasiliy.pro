@@ -18,8 +18,8 @@ const LANGS = {
       'Work': 'Arbeit', 'CV': 'Lebenslauf', 'Contact': 'Kontakt',
       'VP of Engineering &middot; Former CTO &middot; MBA': 'VP of Engineering &middot; Ehemaliger CTO &middot; MBA',
       'Engineering leadership, built on delivery.': 'Engineering-Leadership, gebaut auf Lieferung.',
-      'Twenty years in software, fourteen leading engineers. I scale teams &mdash; 5 to 40 at Homeapp &mdash; run SRE transformations from bare metal to Kubernetes, and build AI platforms that hold 20k requests per second.':
-        'Zwanzig Jahre Software, vierzehn Jahre Führung. Ich skaliere Teams &mdash; von 5 auf 40 bei Homeapp &mdash; treibe SRE-Transformationen von Bare Metal zu Kubernetes und baue KI-Plattformen, die 20.000 Anfragen pro Sekunde tragen.',
+      'Twenty years in software, fourteen leading engineers. I scale teams and run SRE transformations, culturally and technically. As a result: dozens of happy teams and successful projects, including AI-powered platforms that hold loads of 20k requests per second.':
+        'Zwanzig Jahre Software, vierzehn Jahre Führung. Ich skaliere Teams und treibe SRE-Transformationen voran &mdash; kulturell wie technisch. Das Ergebnis: Dutzende zufriedene Teams und erfolgreiche Projekte, darunter KI-Plattformen, die Lasten von 20.000 Anfragen pro Sekunde tragen.',
       'Selected work': 'Ausgewählte Arbeiten',
       'Engineers scaled': 'Skalierte Engineers',
       'Grew engineering from 5 to ~40 as VP &mdash; product trios, hiring, Scrum, remote ops.':
@@ -28,8 +28,8 @@ const LANGS = {
       'Platform for an AI language-learning product &mdash; Go, Kubernetes, Redis; load-tested at 20k RPS.':
         'Plattform für ein KI-Sprachlernprodukt &mdash; Go, Kubernetes, Redis; lasttestet mit 20k RPS.',
       'Award-winning modernization': 'Preisgekrönte Modernisierung',
-      'Laminas &rarr; Doctrine in 6 months &mdash; won the internal Best Client-Oriented Product award.':
-        'Laminas &rarr; Doctrine in 6 Monaten &mdash; ausgezeichnet mit dem internen Preis für das kundenorientierteste Produkt.',
+      'Won the internal &ldquo;Best Client-Oriented Product&rdquo; award by managing the tech-stack modernisation and improving product stability with an SRE approach: observability, clean automated processes, blameless culture.':
+        'Interner Preis &bdquo;Bestes kundenorientiertes Produkt&ldquo; &mdash; gewonnen durch die Steuerung der Tech-Stack-Modernisierung und mehr Produktstabilität mit SRE-Ansatz: Observability, saubere automatisierte Prozesse, Blameless-Kultur.',
       'Product teams built': 'Aufgebaute Produktteams',
       'Built and ran 3 cross-functional product teams; workflow, automation, architecture standards.':
         'Drei crossfunktionale Produktteams aufgebaut und geführt; Workflow, Automatisierung, Architekturstandards.',
@@ -56,8 +56,8 @@ const LANGS = {
       'Work': 'Проекты', 'CV': 'Резюме', 'Contact': 'Контакты',
       'VP of Engineering &middot; Former CTO &middot; MBA': 'VP of Engineering &middot; экс-CTO &middot; MBA',
       'Engineering leadership, built on delivery.': 'Инженерное лидерство, основанное на результате.',
-      'Twenty years in software, fourteen leading engineers. I scale teams &mdash; 5 to 40 at Homeapp &mdash; run SRE transformations from bare metal to Kubernetes, and build AI platforms that hold 20k requests per second.':
-        'Двадцать лет в разработке, четырнадцать — в управлении. Масштабирую команды &mdash; с 5 до 40 человек в Homeapp &mdash; провожу SRE-трансформации от bare metal к Kubernetes и строю AI-платформы, выдерживающие 20 000 запросов в секунду.',
+      'Twenty years in software, fourteen leading engineers. I scale teams and run SRE transformations, culturally and technically. As a result: dozens of happy teams and successful projects, including AI-powered platforms that hold loads of 20k requests per second.':
+        'Двадцать лет в разработке, четырнадцать &mdash; в управлении. Масштабирую команды и провожу SRE-трансформации &mdash; и культурно, и технически. Результат: десятки довольных команд и успешных проектов, включая AI-платформы, выдерживающие нагрузку в 20 000 запросов в секунду.',
       'Selected work': 'Избранные работы',
       'Engineers scaled': 'Рост команды',
       'Grew engineering from 5 to ~40 as VP &mdash; product trios, hiring, Scrum, remote ops.':
@@ -66,9 +66,9 @@ const LANGS = {
       'Platform for an AI language-learning product &mdash; Go, Kubernetes, Redis; load-tested at 20k RPS.':
         'Платформа для AI-продукта по изучению языков &mdash; Go, Kubernetes, Redis; нагрузочное тестирование на 20k RPS.',
       'Award-winning modernization': 'Модернизация с наградой',
-      'Laminas &rarr; Doctrine in 6 months &mdash; won the internal Best Client-Oriented Product award.':
-        'Laminas &rarr; Doctrine за 6 месяцев &mdash; внутренняя награда за самый клиентоориентированный продукт.',
-      'Product teams built': 'Созданные команды',
+      'Won the internal &ldquo;Best Client-Oriented Product&rdquo; award by managing the tech-stack modernisation and improving product stability with an SRE approach: observability, clean automated processes, blameless culture.':
+        'Внутренняя награда «Самый клиентоориентированный продукт» &mdash; за управление модернизацией техстека и рост стабильности продукта через SRE-подход: observability, чистые автоматизированные процессы, культура без поиска виноватых.',
+      'Product teams built': 'Три новые команды',
       'Built and ran 3 cross-functional product teams; workflow, automation, architecture standards.':
         'Создал и вёл 3 кросс-функциональные продуктовые команды; процессы, автоматизация, стандарты архитектуры.',
       'Companies I&rsquo;ve worked with': 'Компании, с которыми я работал',
@@ -81,7 +81,7 @@ const LANGS = {
       '&mdash; Team Lead, CHECK24 &middot; reported to Vasil': '&mdash; Team Lead, CHECK24 &middot; работал в команде Василия',
       '&mdash; Team Lead Software Developer, CHECK24 &middot; worked across teams': '&mdash; Team Lead Software Developer, CHECK24 &middot; смежная команда',
       '6 mo': '6 мес.',
-      '3 teams': '3 команды',
+      '3 teams': '2 мес.',
       'Switch theme': 'Сменить тему',
     },
   },
@@ -94,8 +94,8 @@ const LANGS = {
       'Work': 'Projekty', 'CV': 'CV', 'Contact': 'Kontakt',
       'VP of Engineering &middot; Former CTO &middot; MBA': 'VP of Engineering &middot; były CTO &middot; MBA',
       'Engineering leadership, built on delivery.': 'Przywództwo inżynierskie oparte na dowożeniu.',
-      'Twenty years in software, fourteen leading engineers. I scale teams &mdash; 5 to 40 at Homeapp &mdash; run SRE transformations from bare metal to Kubernetes, and build AI platforms that hold 20k requests per second.':
-        'Dwadzieścia lat w oprogramowaniu, czternaście w zarządzaniu. Skaluję zespoły &mdash; z 5 do 40 osób w Homeapp &mdash; prowadzę transformacje SRE od bare metal do Kubernetes i buduję platformy AI obsługujące 20 000 żądań na sekundę.',
+      'Twenty years in software, fourteen leading engineers. I scale teams and run SRE transformations, culturally and technically. As a result: dozens of happy teams and successful projects, including AI-powered platforms that hold loads of 20k requests per second.':
+        'Dwadzieścia lat w oprogramowaniu, czternaście w zarządzaniu. Skaluję zespoły i prowadzę transformacje SRE &mdash; kulturowo i technicznie. Efekt: dziesiątki zadowolonych zespołów i udanych projektów, w tym platformy AI wytrzymujące obciążenie 20 000 żądań na sekundę.',
       'Selected work': 'Wybrane projekty',
       'Engineers scaled': 'Wzrost zespołu',
       'Grew engineering from 5 to ~40 as VP &mdash; product trios, hiring, Scrum, remote ops.':
@@ -104,8 +104,8 @@ const LANGS = {
       'Platform for an AI language-learning product &mdash; Go, Kubernetes, Redis; load-tested at 20k RPS.':
         'Platforma dla produktu AI do nauki języków &mdash; Go, Kubernetes, Redis; testy obciążeniowe 20k RPS.',
       'Award-winning modernization': 'Nagrodzona modernizacja',
-      'Laminas &rarr; Doctrine in 6 months &mdash; won the internal Best Client-Oriented Product award.':
-        'Laminas &rarr; Doctrine w 6 miesięcy &mdash; wewnętrzna nagroda za produkt najbardziej zorientowany na klienta.',
+      'Won the internal &ldquo;Best Client-Oriented Product&rdquo; award by managing the tech-stack modernisation and improving product stability with an SRE approach: observability, clean automated processes, blameless culture.':
+        'Wewnętrzna nagroda &bdquo;Produkt najbardziej zorientowany na klienta&ldquo; &mdash; za prowadzenie modernizacji stosu technologicznego i poprawę stabilności produktu podejściem SRE: observability, czyste zautomatyzowane procesy, kultura bez obwiniania.',
       'Product teams built': 'Zbudowane zespoły',
       'Built and ran 3 cross-functional product teams; workflow, automation, architecture standards.':
         'Zbudowałem i prowadziłem 3 wielofunkcyjne zespoły produktowe; procesy, automatyzacja, standardy architektury.',
