@@ -57,7 +57,7 @@ const CASES = [
     ],
     metric: '6 mo', metricLabel: 'Laminas &rarr; Doctrine, award-winning',
     facts: 'Team as Team Lead: 4 backend, 2 PMs.',
-    art: 'check24-3.jpg',
+    art: 'check24-1.jpg', artPos: 'center',
     gallery: [
       { src: 'check24-2.jpg', alt: 'CHECK24 Leitlinien Award 2023 presented to Vasil Kulakov', fit: 'natural' },
     ],
