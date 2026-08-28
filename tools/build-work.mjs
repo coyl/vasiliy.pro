@@ -129,8 +129,8 @@ const CASES = [
 // MOST Creative Club and Sbubnom are in the CV only — not on the site.
 
 const arrow = (dir) => dir === 'prev'
-  ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6d675c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg>'
-  : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#6d675c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>';
+  ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg>'
+  : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>';
 
 const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&mdash;/g, '—').replace(/&rarr;/g, '→').replace(/&middot;/g, '·').replace(/&ndash;/g, '–').replace(/&times;/g, '×').replace(/&rsquo;/g, '’').replace(/&#337;/g, 'ő').replace(/&#233;/g, 'é');
 
@@ -215,7 +215,7 @@ ${c.shots.map((g) => `            <img src="../images/showcases/${g}" alt="${str
 ${c.links.items.map((l) => `            <a href="${l.href}">
                 <span class="link-label">${l.label}</span>
                 <span class="link-note">${l.note}</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2456c4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
             </a>`).join('\n')}
         </div>
     </section>

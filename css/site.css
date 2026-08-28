@@ -242,6 +242,7 @@ img { max-width: 100%; }
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
 }
 .tile-desc { font-size: 15px; line-height: 1.5; color: var(--body); }
+.tile-foot svg { color: var(--accent); }
 .tile-foot {
   display: flex; justify-content: space-between; align-items: center;
   margin-top: auto; padding-top: 12px; min-height: 44px;
@@ -261,7 +262,7 @@ img { max-width: 100%; }
 .wall a.wall-item:hover { border-color: var(--ink); color: var(--ink); }
 .wall img { width: 36px; height: 36px; object-fit: contain; border-radius: 6px; }
 .wall span { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--body); }
-.wall svg { position: absolute; top: 10px; right: 10px; }
+.wall svg { position: absolute; top: 10px; right: 10px; color: var(--faint); }
 
 /* recommendations */
 .recs { padding-bottom: 88px; }
@@ -312,6 +313,7 @@ img { max-width: 100%; }
 
 /* case pages */
 .crumb { padding-top: 48px; }
+.crumb svg, .case-nav svg { color: var(--muted); }
 .crumb a {
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
   font-family: var(--sans); font-size: 13px; font-weight: 500;
@@ -440,7 +442,7 @@ img { max-width: 100%; }
   font-family: var(--sans); font-weight: 700; font-size: 16px; letter-spacing: -0.01em;
 }
 .link-note { grid-column: 1; font-size: 15px; color: var(--muted); }
-.link-list svg { grid-column: 2; grid-row: 1 / span 2; }
+.link-list svg { grid-column: 2; grid-row: 1 / span 2; color: var(--accent); }
 .block-links h2, .block-quotes h2 {
   margin: 0 0 24px 0; font-family: var(--sans); font-weight: 800;
   font-size: 22px; letter-spacing: -0.01em;
@@ -548,11 +550,11 @@ img { max-width: 100%; }
 .case-close {
   position: absolute; top: 20px; right: 20px; z-index: 2;
   width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid var(--border); background: var(--card); color: var(--ink);
+  border: 1px solid var(--border); background: var(--panel-deep); color: var(--ink);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; padding: 0;
 }
-.case-close:hover { border-color: var(--ink); }
+.case-close:hover { border-color: var(--ink); background: var(--card); }
 body.overlay-open { overflow: hidden; }
 
 /* responsive */
