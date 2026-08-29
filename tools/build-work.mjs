@@ -11,6 +11,7 @@ const QUOTES = {
   andrei: { img: 'and.jpg', name: 'Andrei Romashin', role: 'Frontend Engineer &middot; reported to Vasil', text: 'Under his leadership the department grew from 5 to 15. He took the product to MVP quickly and established Agile/Scrum and a full delivery lifecycle.' },
   tariq: { img: 'tar.jpg', name: 'Tariq Hashim', role: 'Software Engineer &middot; reported to Vasil', text: 'An exceptional leader, who demonstrated comprehensive understanding of the Symfony framework and provided valuable recommendations for delivering high-quality software. He also introduced Agile methodology that improved our team&rsquo;s productivity and efficiency.' },
   ivan: { img: 'iva.jpg', name: 'Ivan Ihnatiev', role: 'Frontend Developer &middot; reported to Vasil', text: 'Great mentor, leader and bright person!' },
+  georgiy: { img: null, name: 'Georgiy Baranov', role: 'Team Lead &middot; reported to Vasil', text: 'He was invited to organize the development process and build teams for a new project, and brought clarity and structure to a fast-moving environment: working processes, Scrum adapted in a practical way, and the infrastructure the project needed. A thoughtful, supportive manager who kept the team heard, trusted and motivated.' },
   leila: { img: null, name: 'Leila Berezovskaya', role: 'QA &middot; worked on the same team', text: 'He definitely knows how to rally the team and protect its interests. I think he has all the qualities of a great leader.' },
 };
 
@@ -76,6 +77,7 @@ const CASES = [
     story: ['As Head of Development I built and managed three cross-functional product teams &mdash; and set the engineering workflow, automation, and architecture standards they shipped by.'],
     metric: '3', metricLabel: 'cross-functional product teams',
     facts: 'Team: 12 backend, 5 frontend, 2 PMs, 2 designers.',
+    quotes: ['georgiy'],
   },
   {
     slug: 'homeapp', name: 'Homeapp', logo: 'ha.png',
