@@ -39,7 +39,7 @@
 
     <section class="block block-text">
         <p class="block-lede">snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram and its Mini App.</p>
-        <p class="block-story">I built the platform: the infrastructure and security for the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.</p>
+        <p class="block-story">The platform was built from the infrastructure and security of the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.</p>
         <p class="block-story">Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts on webhook acknowledgement latency and reply success rate, plus multi-city Playwright probes, watch it in production.</p>
         <div class="block-stats">
             <span class="stat"><strong>200 &rarr; 5k</strong> users in 3 months</span>

@@ -24,7 +24,7 @@ const CASES = [
     role: 'Senior Software Engineer &mdash; Munich &middot; Remote &middot; 2026 &ndash; present',
     title: 'Owning the services that grade the roads',
     lede: 'vialytics helps cities manage their roads with AI &mdash; and the grading services are where the product&rsquo;s judgment lives.',
-    story: ['I own the function-critical grading services and their integration with the Data Science products: the path that turns model output into the road-condition grades cities act on.'],
+    story: ['Ownership of the function-critical grading services and their integration with the Data Science products: the path that turns model output into the road-condition grades cities act on.'],
     metric: 'Now', metricLabel: 'function-critical grading services',
   },
   {
@@ -35,7 +35,7 @@ const CASES = [
     title: 'From 200 to 5,000 learners in three months',
     lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram and its Mini App.',
     story: [
-      'I built the platform: the infrastructure and security for the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.',
+      'The platform was built from the infrastructure and security of the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.',
       'Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts on webhook acknowledgement latency and reply success rate, plus multi-city Playwright probes, watch it in production.',
     ],
     stats: [
@@ -55,10 +55,10 @@ const CASES = [
     slug: 'check24', name: 'CHECK24', logo: 'c24.png',
     role: 'Engineering Manager &middot; Development Team Lead &mdash; Munich &middot; 2022 &ndash; 2025',
     title: 'Modernizing the backend in six months',
-    lede: 'CHECK24 is Germany&rsquo;s largest comparison portal. The product I joined ran on a legacy stack and bare metal.',
+    lede: 'CHECK24 is Germany&rsquo;s largest comparison portal. The product ran on a legacy stack and bare metal.',
     story: [
-      'As Engineering Manager I led the backend modernization &mdash; Laminas to Doctrine in six months &mdash; which won the internal Best Client-Oriented Product award. In parallel we drove a DevOps/SRE transformation: from Ansible on bare metal to Kubernetes, Helm and Bitbucket Pipelines, with one-click test environments, observability, and CI with static analysis and tests.',
-      'Before that, as Development Team Lead, I owned the delivery-tracking service with a four-person backend team: introduced Scrum, stabilized the legacy system, and raised quality through code reviews and testing.',
+      'The backend modernization &mdash; Laminas to Doctrine in six months &mdash; was led from the Engineering Manager seat and won the internal Best Client-Oriented Product award. In parallel came a DevOps/SRE transformation: from Ansible on bare metal to Kubernetes, Helm and Bitbucket Pipelines, with one-click test environments, observability, and CI with static analysis and tests.',
+      'Before that, as Development Team Lead: the delivery-tracking service owned with a four-person backend team, Scrum introduced, the legacy system stabilized, and quality raised through code reviews and testing.',
     ],
     metric: '6 mo', metricLabel: 'Laminas &rarr; Doctrine, award-winning',
     facts: 'Team as Team Lead: 4 backend, 2 PMs.',
@@ -74,7 +74,7 @@ const CASES = [
     role: 'Head of Development, SRM &mdash; 2021 &ndash; 2022',
     title: '3 new teams in 2 months',
     lede: 'Infourok is one of the largest education platforms in its market; IU.RU gathers its AI tools in one place.',
-    story: ['As Head of Development I built and managed three cross-functional product teams &mdash; and set the engineering workflow, automation, and architecture standards they shipped by.'],
+    story: ['Three cross-functional product teams were built and managed from the Head of Development seat &mdash; along with the engineering workflow, automation, and architecture standards they shipped by.'],
     metric: '3', metricLabel: 'cross-functional product teams',
     facts: 'Team: 12 backend, 5 frontend, 2 PMs, 2 designers.',
     quotes: ['georgiy'],
@@ -87,8 +87,8 @@ const CASES = [
     title: 'From 5 engineers to a 40-person org',
     lede: 'Homeapp is a real-estate platform that pairs sellers with experts: appraisal reports, advertising analytics, sold-property data.',
     story: [
-      'As VP of Engineering I scaled the team from 5 to ~40 people, introduced product trios across design, product and engineering, and instituted Scrum, hiring, KPI/motivation systems, and remote operations &mdash; partnering with the CTPO on product process.',
-      'We built the company platform on PHP/Golang microservices, Kubernetes, and CI/CD. Earlier, as Engineering Manager, I introduced Docker, GKE continuous delivery, and CI.',
+      'As VP of Engineering: the team scaled from 5 to ~40 people, product trios introduced across design, product and engineering, and Scrum, hiring, KPI/motivation systems and remote operations instituted &mdash; in partnership with the CTPO on product process.',
+      'The company platform was built on PHP/Golang microservices, Kubernetes, and CI/CD. Earlier, as Engineering Manager: Docker, GKE continuous delivery and CI introduced.',
     ],
     metric: '5 &rarr; 40', metricLabel: 'engineers scaled',
     facts: 'Team: 15 backend, 12 frontend, 5 QA, 4 DevOps, 4 PMs. Stack: PHP/Golang, Kubernetes, JIRA, GitHub, Drone, Helm.',
@@ -100,7 +100,7 @@ const CASES = [
     role: 'KYC Lead Developer &mdash; 2017 &ndash; 2018',
     title: 'KYC for a cloud bank, tests ten times faster',
     lede: 'Balance Platform builds cloud banking products &mdash; and KYC is the gate every customer passes through.',
-    story: ['I led KYC delivery, introduced Scrum, and moved CI to Docker: test runs became roughly ten times faster.'],
+    story: ['KYC delivery was led, Scrum introduced, and CI moved to Docker: test runs became roughly ten times faster.'],
     metric: '~10&times;', metricLabel: 'faster test runs',
   },
   {
@@ -109,7 +109,7 @@ const CASES = [
     role: 'Symfony Team Lead &mdash; 2015 &ndash; 2017',
     title: 'Owning architecture at a high pace',
     lede: 'Digital Society Laboratory ran a high-pace Symfony project.',
-    story: ['I led three engineers and owned the architecture.'],
+    story: ['Three engineers were led, with the architecture owned end to end.'],
     metric: '3', metricLabel: 'engineers led',
   },
   {
@@ -117,7 +117,7 @@ const CASES = [
     role: 'Engineering Manager &mdash; London Area, United Kingdom &middot; 2014 &ndash; 2015',
     title: 'Releases across time zones',
     lede: 'Bumble&rsquo;s products ship continuously, from teams spread around the world.',
-    story: ['In London I led the international release-engineering team, automating and owning the end-to-end release cycle together with Product.'],
+    story: ['In London the international release-engineering team was led, with the end-to-end release cycle automated and owned together with Product.'],
     metric: 'E2E', metricLabel: 'release cycle owned',
   },
   {
@@ -125,7 +125,7 @@ const CASES = [
     role: 'Head of Engineering &middot; Engineering Manager &mdash; 2010 &ndash; 2014',
     title: 'Five teams, one platform',
     lede: 'Creara Media ran five PHP teams &mdash; fifteen developers &mdash; shipping in parallel.',
-    story: ['As Head of Engineering I introduced Git, Jira, and TeamCity CI/CD, and shared platform components across the teams. Earlier, as Engineering Manager, I led billing delivery and people development.'],
+    story: ['As Head of Engineering: Git, Jira and TeamCity CI/CD introduced, along with shared platform components across the teams. Earlier, as Engineering Manager: billing delivery and people development led.'],
     metric: '15', metricLabel: 'developers across 5 teams',
   },
 ];
