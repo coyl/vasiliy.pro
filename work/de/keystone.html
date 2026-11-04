@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vasil Kulakov at Keystone (KTMS) — Autor & Maintainer — Open Source · 2026 – heute. Ein Gateway für jeden LLM-Aufruf.">
+    <title>Keystone (KTMS): Ein Gateway für jeden LLM-Aufruf — Vasil Kulakov</title>
+    <link rel="canonical" href="https://vasiliy.pro/work/de/keystone.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Vasil Kulakov">
+    <meta property="og:title" content="Keystone (KTMS): Ein Gateway für jeden LLM-Aufruf">
+    <meta property="og:description" content="Keystone (KTMS) ist ein selbst gehostetes Open-Source-LLM-Gateway. Services fragen nach einem Aufwandslevel statt nach einem Modell; Keystone hält die Anbieter-Schlüssel, wählt die Modellkette, weicht bei Ausfällen aus und setzt Rate- und Kostenlimits durch.">
+    <meta property="og:url" content="https://vasiliy.pro/work/de/keystone.html">
+    <meta property="og:image" content="https://vasiliy.pro/i/s/ks1.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="../../de.html">Vasil Kulakov</a>
+        <nav class="site-nav">
+            <a class="active" href="../../de.html#work">Arbeit</a>
+            <a href="../../blog/Vasil.Kulakov.pdf" target="_blank" rel="noopener">Lebenslauf</a>
+            <a href="../../de.html#contact">Kontakt</a>
+            <button class="theme-toggle" type="button" aria-label="Design wechseln" title="Design wechseln">
+                <svg class="icon-moon" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.3A7.3 7.3 0 0 1 7.7 3a7.5 7.5 0 1 0 9.3 9.3Z"></path></svg>
+                <svg class="icon-sun" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.6"></circle><path d="M10 1.6v2M10 16.4v2M18.4 10h-2M3.6 10h-2M15.9 4.1l-1.4 1.4M5.5 14.5l-1.4 1.4M15.9 15.9l-1.4-1.4M5.5 5.5 4.1 4.1"></path></svg>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<div class="wrap crumb">
+    <a href="../../de.html#companies"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg> Alle Unternehmen</a>
+</div>
+
+<main class="case wrap">
+    <div class="case-kicker">Keystone (KTMS)</div>
+    <h1 class="case-title">Ein Gateway für jeden LLM-Aufruf</h1>
+    <div class="case-role">Autor &amp; Maintainer &mdash; Open Source &middot; 2026 &ndash; heute</div>
+
+    <section class="block block-text">
+        <p class="block-lede">Keystone (KTMS) ist ein selbst gehostetes Open-Source-LLM-Gateway. Services fragen nach einem Aufwandslevel statt nach einem Modell; Keystone hält die Anbieter-Schlüssel, wählt die Modellkette, weicht bei Ausfällen aus und setzt Rate- und Kostenlimits durch.</p>
+        <p class="block-story">Es begann als LLM-Proxy hinter snappyloop und wurde zu einem eigenständigen Produkt, gebaut mit demselben KI-nativen Delivery-Modell: ein einzelnes Go-Binary mit gRPC, OpenAI- und Anthropic-kompatiblen APIs und einem MCP-Gateway, rund 7 MiB Speicher im Leerlauf und unter einer Millisekunde zusätzlicher Latenz.</p>
+        <p class="block-story">Die Betriebsprobleme von LLMs in Produktion löst das Gateway, nicht jeder einzelne Service: harte Kostenobergrenzen pro Schlüssel, Endnutzer und Team, atomar vor jedem Aufruf reserviert; Circuit Breaker pro Anbieter und Fallback-Ketten; lokale Inferenz-Nodes auf ungenutzten Macs und GPU-Rechnern mit Cloud-Fallback; signierte Releases mit SBOM und SLSA-Provenienz.</p>
+        <p class="block-story">Drumherum: light-tokenmeter für Nutzungsberichte, die Web-Konsole ktms-admin und ein Claude-Code-Plugin, dessen Skills das Gateway bewerten, deployen und integrieren &mdash; mit einer CI, die fehlschlägt, sobald ein Skill einen Befehl nennt, den das Release nicht kennt.</p>
+        <div class="block-stats">
+            <span class="stat"><strong>&lt;1 ms</strong> zusätzliche Latenz</span>
+            <span class="stat"><strong>7 MiB</strong> Speicher im Leerlauf</span>
+            <span class="stat"><strong>Apache 2.0</strong> Open Source</span>
+        </div>
+        <div class="stack">
+            <span class="stack-label">Stack</span>
+            <span class="stack-chips"><span class="chip">Go</span><span class="chip">gRPC</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Helm</span><span class="chip">OpenAI</span><span class="chip">Anthropic</span><span class="chip">Gemini</span><span class="chip">DeepSeek</span><span class="chip">Ollama / vLLM / llama.cpp</span><span class="chip">MCP</span><span class="chip">cosign + SLSA</span></span>
+        </div>
+    </section>
+
+    <section class="block block-media">
+        <span class="shade"><img class="pos-center" src="../../i/s/ks1.jpg" alt="Keystone (KTMS)" width="1200" height="630"></span>
+    </section>
+
+    <section class="block block-media">
+        <img class="natural" src="../../i/s/ks2.jpg" alt="Keystone architecture: ingress, router and switchboard, admin service, Redis throttle, PostgreSQL keyring, batch poller and MCP gateway">
+    </section>
+
+    <section class="block block-links">
+        <h2>Projekt</h2>
+        <div class="link-list">
+            <a href="https://github.com/ai-process/ktms" rel="noopener">
+                <span class="link-label">github.com/ai-process/ktms</span>
+                <span class="link-note">Quellcode, Releases und das Claude-Code-Plugin</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+            <a href="https://ai-process.dev" rel="noopener">
+                <span class="link-label">ai-process.dev</span>
+                <span class="link-note">Dokumentation und Schnellstart</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <div class="case-nav">
+        <a href="vialytics.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg><img src="../../i/c/via.png" alt=""><span>vialytics</span></a>
+        <a href="snappyloop.html"><span>snappyloop</span><img src="../../i/c/sl.svg" alt=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg></a>
+    </div>
+</main>
+
+<footer class="site-footer" id="contact">
+    <div class="wrap">
+        <div class="footer-main">
+            <div class="footer-title">Sprechen wir.</div>
+            <div class="footer-sub">Ansässig in München &mdash; hybride Präsenz in jeder Stadt Deutschlands möglich.</div>
+            <div class="footer-actions">
+                <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliy-kulakov" rel="me">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <div>&copy; 2026 Vasil Kulakov &middot; Munich, Bavaria</div>
+        </div>
+    </div>
+</footer>
+
+<script src="../../js/cover-tilt.js"></script>
+<script src="../../js/theme.js"></script>
+
+</body>
+</html>
