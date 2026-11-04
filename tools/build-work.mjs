@@ -59,13 +59,13 @@ const CASES = [
     slug: 'snappyloop', name: 'snappyloop', logo: 'sl.svg',
     art: 'sl1.jpg',
     shots: ['sl2.jpg', 'sl3.jpg', 'sl4.jpg', 'sl5.jpg'],
-    role: 'Founder &amp; Engineering Lead &mdash; Munich &middot; 2024 &ndash; present',
+    role: 'Founder &amp; Engineering Lead &mdash; Munich &middot; 2024 &ndash; 2026',
     title: 'An AI-native delivery model, proven in production',
-    lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram, its Mini App and the web. One engineer builds and runs it on an AI-native delivery model.',
+    lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram, its Mini App and the web. One engineer built and ran it on an AI-native delivery model.',
     story: [
-      'In that model, specialized agents execute scoped work &mdash; a service change, a migration, a test suite &mdash; through GitHub Issues, which hold each task, its context and the trail of decisions between sessions. Product decisions, architecture, priorities, risk, review and acceptance stay human-owned: agents propose and implement, and nothing is accepted without review against the architecture.',
-      'The model carries more than a dozen services in Go and PHP &mdash; courses, voice practice, flashcards, payments, notifications &mdash; on PostgreSQL, Redis and Kubernetes. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers, with Redis for shared session state and global rate limits and one central ceiling for the AI vendors across every replica. The platform is load-tested at 20,000 requests per second.',
-      'Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts and multi-city Playwright probes watch it in production. The LLM proxy behind it grew into Keystone, an open-source gateway.',
+      'In that model, specialized agents executed scoped work &mdash; a service change, a migration, a test suite &mdash; through GitHub Issues, which held each task, its context and the trail of decisions between sessions. Product decisions, architecture, priorities, risk, review and acceptance stayed human-owned: agents proposed and implemented, and nothing was accepted without review against the architecture.',
+      'The model carried more than a dozen services in Go and PHP &mdash; courses, voice practice, flashcards, payments, notifications &mdash; on PostgreSQL, Redis and Kubernetes. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers, with Redis for shared session state and global rate limits and one central ceiling for the AI vendors across every replica. The platform was load-tested at 20,000 requests per second.',
+      'Security was four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts and multi-city Playwright probes watched it in production. The LLM proxy behind it grew into Keystone, an open-source gateway.',
     ],
     stats: [
       { value: 'AI-native', label: 'agents via GitHub Issues, decisions human-owned' },
