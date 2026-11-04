@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vasil Kulakov at snappyloop — Staff Engineer — Мюнхен · 2025 – настоящее время.">
-    <title>snappyloop: От 200 до 5000 учеников за три месяца — Vasil Kulakov</title>
+    <meta name="description" content="Vasil Kulakov at snappyloop — Founder & Engineering Lead — Мюнхен · 2024 – настоящее время. AI-native модель разработки, проверенная продакшеном.">
+    <title>snappyloop: AI-native модель разработки, проверенная продакшеном — Vasil Kulakov</title>
+    <link rel="canonical" href="https://vasiliy.pro/work/ru/snappyloop.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Vasil Kulakov">
+    <meta property="og:title" content="snappyloop: AI-native модель разработки, проверенная продакшеном">
+    <meta property="og:description" content="snappyloop — это AI-продукт для изучения языков: курсы, живая голосовая практика с репетитором и словарь с интервальным повторением, доставляемые через Telegram, его Mini App и веб. Один инженер строит и эксплуатирует его на AI-native модели разработки.">
+    <meta property="og:url" content="https://vasiliy.pro/work/ru/snappyloop.html">
+    <meta property="og:image" content="https://vasiliy.pro/i/s/sl1.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -34,20 +43,22 @@
 
 <main class="case wrap">
     <div class="case-kicker">snappyloop</div>
-    <h1 class="case-title">От 200 до 5000 учеников за три месяца</h1>
-    <div class="case-role">Staff Engineer &mdash; Мюнхен &middot; 2025 &ndash; настоящее время</div>
+    <h1 class="case-title">AI-native модель разработки, проверенная продакшеном</h1>
+    <div class="case-role">Founder &amp; Engineering Lead &mdash; Мюнхен &middot; 2024 &ndash; настоящее время</div>
 
     <section class="block block-text">
-        <p class="block-lede">snappyloop &mdash; это AI-продукт для изучения языков: курсы, живая голосовая практика с репетитором и словарь с интервальным повторением, доставляемые через Telegram и его Mini App.</p>
-        <p class="block-story">Платформа построена на инфраструктуре и безопасности мультиагентной системы, выдержавшей нагрузочное тестирование на 20 000 запросов в секунду. Пока продукт рос с 200 до 5000 пользователей за три месяца, архитектура перешла от одного long-polling воркера к webhook-воркерам с горизонтальным масштабированием &mdash; с Redis для общего состояния сессий и глобальных лимитов и центральным контроллером, который держит единый потолок запросов к AI-провайдерам для всех реплик.</p>
-        <p class="block-story">Безопасность на пути webhook &mdash; четыре уровня: фаервол, ingress, список разрешённых IP и проверка подписи запроса; внутренний API доступен только через исходящий Cloudflare Tunnel. За продакшеном следят SLO-алерты по burn rate на задержку подтверждения webhook и долю успешных ответов, а также Playwright-пробы из нескольких городов.</p>
+        <p class="block-lede">snappyloop &mdash; это AI-продукт для изучения языков: курсы, живая голосовая практика с репетитором и словарь с интервальным повторением, доставляемые через Telegram, его Mini App и веб. Один инженер строит и эксплуатирует его на AI-native модели разработки.</p>
+        <p class="block-story">В этой модели специализированные агенты выполняют чётко очерченные задачи &mdash; изменение сервиса, миграцию, набор тестов &mdash; через GitHub Issues, где хранятся сама задача, её контекст и история решений между сессиями. Продуктовые решения, архитектура, приоритеты, риски, ревью и приёмка остаются за человеком: агенты предлагают и реализуют, и ничто не принимается без ревью на соответствие архитектуре.</p>
+        <p class="block-story">На этой модели держится больше десятка сервисов на Go и PHP &mdash; курсы, голосовая практика, карточки, платежи, уведомления &mdash; на PostgreSQL, Redis и Kubernetes. Пока продукт рос с 200 до 5000 пользователей за три месяца, архитектура перешла от одного long-polling воркера к webhook-воркерам с горизонтальным масштабированием, с Redis для общего состояния сессий и глобальных лимитов и единым потолком запросов к AI-провайдерам для всех реплик. Платформа выдерживает нагрузочное тестирование на 20 000 запросов в секунду.</p>
+        <p class="block-story">Безопасность на пути webhook &mdash; четыре уровня: фаервол, ingress, список разрешённых IP и проверка подписи запроса; внутренний API доступен только через исходящий Cloudflare Tunnel. За продакшеном следят SLO-алерты по burn rate и Playwright-пробы из нескольких городов. Из LLM-прокси этой платформы вырос Keystone &mdash; open-source шлюз.</p>
         <div class="block-stats">
+            <span class="stat"><strong>AI-native</strong> агенты через GitHub Issues, решения за человеком</span>
             <span class="stat"><strong>200 &rarr; 5k</strong> пользователей за 3 месяца</span>
             <span class="stat"><strong>20k RPS</strong> нагрузочный тест</span>
         </div>
         <div class="stack">
             <span class="stack-label">Стек</span>
-            <span class="stack-chips"><span class="chip">Go</span><span class="chip">Symfony / PHP</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Telegram Bot API &amp; Mini Apps</span><span class="chip">Cloudflare Tunnel</span><span class="chip">OpenAI &amp; Gemini</span><span class="chip">Prometheus SLOs</span><span class="chip">Playwright</span><span class="chip">SOPS + age</span></span>
+            <span class="stack-chips"><span class="chip">Specialized coding agents</span><span class="chip">GitHub Issues</span><span class="chip">Go</span><span class="chip">Symfony / PHP</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Telegram Bot API &amp; Mini Apps</span><span class="chip">Cloudflare Tunnel</span><span class="chip">OpenAI &amp; Gemini</span><span class="chip">Prometheus SLOs</span><span class="chip">Playwright</span></span>
         </div>
     </section>
 
@@ -65,23 +76,28 @@
     </section>
 
     <section class="block block-links">
-        <h2>Доклады по этой работе</h2>
+        <h2>Доклады и проекты по этой работе</h2>
         <div class="link-list">
             <a href="../../talks/bot-pod-problem.html">
                 <span class="link-label">One Bot, One Pod, One Problem at a Time</span>
-                <span class="link-note">Telegram-боты в Kubernetes &mdash; webhooks, Redis и практики SRE</span>
+                <span class="link-note">SREday Munich 2026 &mdash; Telegram-боты в Kubernetes, webhooks, Redis и практики SRE</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
             </a>
             <a href="../../talks/ship.html">
                 <span class="link-label">Stop Prototyping, Start Shipping</span>
-                <span class="link-note">Библиотеки Python, Node.js и Golang для пути от прототипа к продакшену</span>
+                <span class="link-note">Митап в Google, декабрь 2025 &mdash; библиотеки для пути AI-функций от прототипа к продакшену</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+            <a href="keystone.html">
+                <span class="link-label">Keystone (KTMS)</span>
+                <span class="link-note">Open-source LLM-шлюз, выросший из этой платформы</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
             </a>
         </div>
     </section>
 
     <div class="case-nav">
-        <a href="vialytics.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg><img src="../../i/c/via.png" alt=""><span>vialytics</span></a>
+        <a href="keystone.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg><img src="../../i/c/ks.svg" alt=""><span>Keystone (KTMS)</span></a>
         <a href="check24.html"><span>CHECK24</span><img src="../../i/c/c24.png" alt=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg></a>
     </div>
 </main>
@@ -93,7 +109,7 @@
             <div class="footer-sub">Живу в Мюнхене &mdash; готов к гибридному формату в любом городе Германии.</div>
             <div class="footer-actions">
                 <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
-                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliykulakov" rel="me">LinkedIn</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliy-kulakov" rel="me">LinkedIn</a>
             </div>
         </div>
         <div class="footer-meta">

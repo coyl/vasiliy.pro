@@ -28,26 +28,57 @@ const CASES = [
     metric: 'Now', metricLabel: 'function-critical grading services',
   },
   {
+    slug: 'keystone', name: 'Keystone (KTMS)', logo: 'ks.svg',
+    art: 'ks1.jpg', artPos: 'center',
+    gallery: [
+      { src: 'ks2.jpg', alt: 'Keystone architecture: ingress, router and switchboard, admin service, Redis throttle, PostgreSQL keyring, batch poller and MCP gateway', fit: 'natural' },
+    ],
+    role: 'Author &amp; maintainer &mdash; open source &middot; 2026 &ndash; present',
+    title: 'One gateway for every LLM call',
+    lede: 'Keystone (KTMS) is an open-source, self-hosted LLM gateway. Services ask for an effort level instead of a model; Keystone holds the vendor keys, picks the model chain, falls back when a vendor is down, and enforces rate and spend limits.',
+    story: [
+      'It started as the LLM proxy behind snappyloop and became a standalone product, built on the same AI-native delivery model: a single Go binary with gRPC, OpenAI- and Anthropic-compatible APIs and an MCP gateway, about 7 MiB of idle memory and under a millisecond of added latency.',
+      'The operational problems of running LLMs in production are handled in the gateway, not in every service: hard spend caps per key, end user and team, reserved atomically before each call; per-vendor circuit breakers and fallback chains; local inference nodes on idle Macs and GPU boxes with cloud fallback; and signed releases with an SBOM and SLSA provenance.',
+      'Around it: light-tokenmeter for usage reporting, the ktms-admin web console, and a Claude Code plugin whose skills assess, deploy and integrate the gateway &mdash; with CI that fails when a skill names a command the release does not have.',
+    ],
+    stats: [
+      { value: '&lt;1 ms', label: 'added latency' },
+      { value: '7 MiB', label: 'idle memory' },
+      { value: 'Apache 2.0', label: 'open source' },
+    ],
+    stack: ['Go', 'gRPC', 'PostgreSQL', 'Redis', 'Helm', 'OpenAI', 'Anthropic', 'Gemini', 'DeepSeek', 'Ollama / vLLM / llama.cpp', 'MCP', 'cosign + SLSA'],
+    links: {
+      title: 'Project',
+      items: [
+        { href: 'https://github.com/ai-process/ktms', label: 'github.com/ai-process/ktms', note: 'Source, releases and the Claude Code plugin' },
+        { href: 'https://ai-process.dev', label: 'ai-process.dev', note: 'Documentation and quick start' },
+      ],
+    },
+  },
+  {
     slug: 'snappyloop', name: 'snappyloop', logo: 'sl.svg',
     art: 'sl1.jpg',
     shots: ['sl2.jpg', 'sl3.jpg', 'sl4.jpg', 'sl5.jpg'],
-    role: 'Staff Engineer &mdash; Munich &middot; 2025 &ndash; present',
-    title: 'From 200 to 5,000 learners in three months',
-    lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram and its Mini App.',
+    role: 'Founder &amp; Engineering Lead &mdash; Munich &middot; 2024 &ndash; present',
+    title: 'An AI-native delivery model, proven in production',
+    lede: 'snappyloop is an AI language-learning product &mdash; courses, live voice practice with a tutor, and spaced-repetition vocabulary, delivered through Telegram, its Mini App and the web. One engineer builds and runs it on an AI-native delivery model.',
     story: [
-      'The platform was built from the infrastructure and security of the multi-agent system behind it, load-tested at 20,000 requests per second. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers &mdash; with Redis for shared session state and global rate limits, and a central controller holding one ceiling across every replica for the AI vendors.',
-      'Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts on webhook acknowledgement latency and reply success rate, plus multi-city Playwright probes, watch it in production.',
+      'In that model, specialized agents execute scoped work &mdash; a service change, a migration, a test suite &mdash; through GitHub Issues, which hold each task, its context and the trail of decisions between sessions. Product decisions, architecture, priorities, risk, review and acceptance stay human-owned: agents propose and implement, and nothing is accepted without review against the architecture.',
+      'The model carries more than a dozen services in Go and PHP &mdash; courses, voice practice, flashcards, payments, notifications &mdash; on PostgreSQL, Redis and Kubernetes. As the product grew from 200 to 5,000 users in three months, the architecture moved from a single long-polling worker to webhook-driven, horizontally scaled bot workers, with Redis for shared session state and global rate limits and one central ceiling for the AI vendors across every replica. The platform is load-tested at 20,000 requests per second.',
+      'Security is four layers deep on the webhook path &mdash; firewall, ingress, IP allowlist, and request-signature verification &mdash; with the internal API reachable only through an outbound-only Cloudflare Tunnel. SLO burn-rate alerts and multi-city Playwright probes watch it in production. The LLM proxy behind it grew into Keystone, an open-source gateway.',
     ],
     stats: [
+      { value: 'AI-native', label: 'agents via GitHub Issues, decisions human-owned' },
       { value: '200 &rarr; 5k', label: 'users in 3 months' },
       { value: '20k RPS', label: 'load-tested' },
     ],
-    stack: ['Go', 'Symfony / PHP', 'PostgreSQL', 'Redis', 'Kubernetes', 'Helm', 'Telegram Bot API &amp; Mini Apps', 'Cloudflare Tunnel', 'OpenAI &amp; Gemini', 'Prometheus SLOs', 'Playwright', 'SOPS + age'],
+    stack: ['Specialized coding agents', 'GitHub Issues', 'Go', 'Symfony / PHP', 'PostgreSQL', 'Redis', 'Kubernetes', 'Helm', 'Telegram Bot API &amp; Mini Apps', 'Cloudflare Tunnel', 'OpenAI &amp; Gemini', 'Prometheus SLOs', 'Playwright'],
     links: {
-      title: 'Talks from this work',
+      title: 'Talks and projects from this work',
       items: [
-        { href: 'talks/bot-pod-problem.html', label: 'One Bot, One Pod, One Problem at a Time', note: 'Telegram bots on Kubernetes &mdash; webhooks, Redis, and SRE practices' },
-        { href: 'talks/ship.html', label: 'Stop Prototyping, Start Shipping', note: 'Python, Node.js, and Golang libraries for moving from prototype to production' },
+        { href: 'talks/bot-pod-problem.html', label: 'One Bot, One Pod, One Problem at a Time', note: 'SREday Munich 2026 &mdash; Telegram bots on Kubernetes, webhooks, Redis, and SRE practices' },
+        { href: 'talks/ship.html', label: 'Stop Prototyping, Start Shipping', note: 'Meetup at Google, December 2025 &mdash; libraries for moving AI features from prototype to production' },
+        { href: 'case:keystone', label: 'Keystone (KTMS)', note: 'The open-source LLM gateway that grew out of this platform' },
       ],
     },
   },
@@ -71,7 +102,7 @@ const CASES = [
   {
     slug: 'infourok', name: 'Infourok', logo: 'iu.png',
     art: 'iu1.jpg',
-    role: 'Head of Development, SRM &mdash; 2021 &ndash; 2022',
+    role: 'Head of Development &mdash; 2021 &ndash; 2022',
     title: '3 new teams in 2 months',
     lede: 'Infourok is one of the largest education platforms in its market; IU.RU gathers its AI tools in one place.',
     story: ['Three cross-functional product teams were built and managed from the Head of Development seat &mdash; along with the engineering workflow, automation, and architecture standards they shipped by.'],
@@ -87,7 +118,7 @@ const CASES = [
     title: 'From 5 engineers to a 40-person org',
     lede: 'Homeapp is a real-estate platform that pairs sellers with experts: appraisal reports, advertising analytics, sold-property data.',
     story: [
-      'As VP of Engineering: the team scaled from 5 to ~40 people, product trios introduced across design, product and engineering, and Scrum, hiring, KPI/motivation systems and remote operations instituted &mdash; in partnership with the CTPO on product process.',
+      'As VP of Engineering: the team scaled from 5 to ~40 people, product trios introduced across design, product and engineering, and Scrum, hiring, KPI/motivation systems and remote operations instituted &mdash; in partnership with the CPO on product process.',
       'The company platform was built on PHP/Golang microservices, Kubernetes, and CI/CD. Earlier, as Engineering Manager: Docker, GKE continuous delivery and CI introduced.',
     ],
     metric: '5 &rarr; 40', metricLabel: 'engineers scaled',
@@ -106,7 +137,7 @@ const CASES = [
   {
     // hidden: temporarily unlinked from the wall and prev/next (page still builds)
     slug: 'dsl', art: 'dsl.svg', hidden: true, name: 'Digital Society Laboratory', logo: 'dsl.svg',
-    role: 'Symfony Team Lead &mdash; 2015 &ndash; 2017',
+    role: 'Engineering Manager &mdash; 2015 &ndash; 2017',
     title: 'Owning architecture at a high pace',
     lede: 'Digital Society Laboratory ran a high-pace Symfony project.',
     story: ['Three engineers were led, with the architecture owned end to end.'],
@@ -122,10 +153,10 @@ const CASES = [
   },
   {
     slug: 'creara', art: 'cre.svg', name: 'Creara Media', logo: 'cre.png',
-    role: 'Head of Engineering &middot; Engineering Manager &mdash; 2010 &ndash; 2014',
+    role: 'CTO &middot; Engineering Manager &mdash; 2010 &ndash; 2014',
     title: 'Five teams, one platform',
     lede: 'Creara Media ran five PHP teams &mdash; fifteen developers &mdash; shipping in parallel.',
-    story: ['As Head of Engineering: Git, Jira and TeamCity CI/CD introduced, along with shared platform components across the teams. Earlier, as Engineering Manager: billing delivery and people development led.'],
+    story: ['As CTO: the whole of engineering owned &mdash; Git, Jira and TeamCity CI/CD introduced, technology choices made, and shared platform components built across the teams. Earlier, as Engineering Manager: billing delivery and people development led.'],
     metric: '15', metricLabel: 'developers across 5 teams',
   },
 ];
@@ -138,15 +169,24 @@ const arrow = (dir) => dir === 'prev'
   ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg>'
   : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>';
 
-const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&mdash;/g, '—').replace(/&rarr;/g, '→').replace(/&middot;/g, '·').replace(/&ndash;/g, '–').replace(/&times;/g, '×').replace(/&rsquo;/g, '’').replace(/&#337;/g, 'ő').replace(/&#233;/g, 'é');
+const strip = (s) => s.replace(/<[^>]+>/g, '').replace(/&mdash;/g, '—').replace(/&rarr;/g, '→').replace(/&middot;/g, '·').replace(/&ndash;/g, '–').replace(/&times;/g, '×').replace(/&rsquo;/g, '’').replace(/&#337;/g, 'ő').replace(/&#233;/g, 'é').replace(/&ldquo;|&rdquo;|&bdquo;/g, '"').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
 
 const page = (c, prev, next, lang, ui, up, home) => `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vasil Kulakov at ${strip(c.name)} — ${strip(c.role)}.">
+    <meta name="description" content="Vasil Kulakov at ${strip(c.name)} — ${strip(c.role)}. ${strip(c.title)}.">
     <title>${strip(c.name)}: ${strip(c.title)} — Vasil Kulakov</title>
+    <link rel="canonical" href="https://vasiliy.pro/${lang === 'en' ? 'work' : `work/${lang}`}/${c.slug}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Vasil Kulakov">
+    <meta property="og:title" content="${strip(c.name)}: ${strip(c.title)}">
+    <meta property="og:description" content="${strip(c.lede).replace(/"/g, '&quot;')}">
+    <meta property="og:url" content="https://vasiliy.pro/${lang === 'en' ? 'work' : `work/${lang}`}/${c.slug}.html">
+    <meta property="og:image" content="https://vasiliy.pro/i/s/${c.art ?? `${c.slug}.svg`}">
+    <meta property="og:locale" content="${({ en: 'en_US', de: 'de_DE', ru: 'ru_RU', pl: 'pl_PL' })[lang]}">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -218,7 +258,7 @@ ${c.shots.map((g) => `            <img src="${up}i/s/${g}" alt="${strip(c.name)}
     <section class="block block-links">
         <h2>${c.links.title}</h2>
         <div class="link-list">
-${c.links.items.map((l) => `            <a href="${up}${l.href}">
+${c.links.items.map((l) => `            <a href="${l.href.startsWith('http') ? l.href : l.href.startsWith('case:') ? `${l.href.slice(5)}.html` : `${up}${l.href}`}"${l.href.startsWith('http') ? ' rel="noopener"' : ''}>
                 <span class="link-label">${l.label}</span>
                 <span class="link-note">${l.note}</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
@@ -255,7 +295,7 @@ ${c.quotes.map((q) => {
             <div class="footer-sub">${ui.footerSub}</div>
             <div class="footer-actions">
                 <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
-                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliykulakov" rel="me">LinkedIn</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliy-kulakov" rel="me">LinkedIn</a>
             </div>
         </div>
         <div class="footer-meta">

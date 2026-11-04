@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vasil Kulakov at Keystone (KTMS) — Автор и мейнтейнер — open source · 2026 – настоящее время. Один шлюз для каждого вызова LLM.">
+    <title>Keystone (KTMS): Один шлюз для каждого вызова LLM — Vasil Kulakov</title>
+    <link rel="canonical" href="https://vasiliy.pro/work/ru/keystone.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Vasil Kulakov">
+    <meta property="og:title" content="Keystone (KTMS): Один шлюз для каждого вызова LLM">
+    <meta property="og:description" content="Keystone (KTMS) — open-source LLM-шлюз для self-hosted развёртывания. Сервисы запрашивают уровень усилия, а не модель; Keystone хранит ключи провайдеров, выбирает цепочку моделей, переключается при сбоях и следит за лимитами запросов и расходов.">
+    <meta property="og:url" content="https://vasiliy.pro/work/ru/keystone.html">
+    <meta property="og:image" content="https://vasiliy.pro/i/s/ks1.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/site.css">
+    <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="../../ru.html">Vasil Kulakov</a>
+        <nav class="site-nav">
+            <a class="active" href="../../ru.html#work">Проекты</a>
+            <a href="../../blog/Vasil.Kulakov.pdf" target="_blank" rel="noopener">Резюме</a>
+            <a href="../../ru.html#contact">Контакты</a>
+            <button class="theme-toggle" type="button" aria-label="Сменить тему" title="Сменить тему">
+                <svg class="icon-moon" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12.3A7.3 7.3 0 0 1 7.7 3a7.5 7.5 0 1 0 9.3 9.3Z"></path></svg>
+                <svg class="icon-sun" width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3.6"></circle><path d="M10 1.6v2M10 16.4v2M18.4 10h-2M3.6 10h-2M15.9 4.1l-1.4 1.4M5.5 14.5l-1.4 1.4M15.9 15.9l-1.4-1.4M5.5 5.5 4.1 4.1"></path></svg>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<div class="wrap crumb">
+    <a href="../../ru.html#companies"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg> Все компании</a>
+</div>
+
+<main class="case wrap">
+    <div class="case-kicker">Keystone (KTMS)</div>
+    <h1 class="case-title">Один шлюз для каждого вызова LLM</h1>
+    <div class="case-role">Автор и мейнтейнер &mdash; open source &middot; 2026 &ndash; настоящее время</div>
+
+    <section class="block block-text">
+        <p class="block-lede">Keystone (KTMS) &mdash; open-source LLM-шлюз для self-hosted развёртывания. Сервисы запрашивают уровень усилия, а не модель; Keystone хранит ключи провайдеров, выбирает цепочку моделей, переключается при сбоях и следит за лимитами запросов и расходов.</p>
+        <p class="block-story">Он начинался как LLM-прокси внутри snappyloop и стал самостоятельным продуктом, построенным на той же AI-native модели разработки: один Go-бинарник с gRPC, OpenAI- и Anthropic-совместимыми API и MCP-шлюзом, около 7 MiB памяти в простое и меньше миллисекунды добавленной задержки.</p>
+        <p class="block-story">Эксплуатационные проблемы LLM в продакшене решаются в шлюзе, а не в каждом сервисе: жёсткие лимиты расходов на ключ, конечного пользователя и команду с атомарным резервированием перед каждым вызовом; circuit breaker на каждого провайдера и цепочки fallback; локальные inference-ноды на простаивающих Mac и GPU-машинах с fallback в облако; подписанные релизы с SBOM и SLSA provenance.</p>
+        <p class="block-story">Вокруг него: light-tokenmeter для отчётов об использовании, веб-консоль ktms-admin и плагин для Claude Code, чьи skills оценивают, разворачивают и интегрируют шлюз &mdash; с CI, который падает, если skill ссылается на команду, которой нет в релизе.</p>
+        <div class="block-stats">
+            <span class="stat"><strong>&lt;1 ms</strong> добавленная задержка</span>
+            <span class="stat"><strong>7 MiB</strong> памяти в простое</span>
+            <span class="stat"><strong>Apache 2.0</strong> open source</span>
+        </div>
+        <div class="stack">
+            <span class="stack-label">Стек</span>
+            <span class="stack-chips"><span class="chip">Go</span><span class="chip">gRPC</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Helm</span><span class="chip">OpenAI</span><span class="chip">Anthropic</span><span class="chip">Gemini</span><span class="chip">DeepSeek</span><span class="chip">Ollama / vLLM / llama.cpp</span><span class="chip">MCP</span><span class="chip">cosign + SLSA</span></span>
+        </div>
+    </section>
+
+    <section class="block block-media">
+        <span class="shade"><img class="pos-center" src="../../i/s/ks1.jpg" alt="Keystone (KTMS)" width="1200" height="630"></span>
+    </section>
+
+    <section class="block block-media">
+        <img class="natural" src="../../i/s/ks2.jpg" alt="Keystone architecture: ingress, router and switchboard, admin service, Redis throttle, PostgreSQL keyring, batch poller and MCP gateway">
+    </section>
+
+    <section class="block block-links">
+        <h2>Проект</h2>
+        <div class="link-list">
+            <a href="https://github.com/ai-process/ktms" rel="noopener">
+                <span class="link-label">github.com/ai-process/ktms</span>
+                <span class="link-note">Исходный код, релизы и плагин для Claude Code</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+            <a href="https://ai-process.dev" rel="noopener">
+                <span class="link-label">ai-process.dev</span>
+                <span class="link-note">Документация и быстрый старт</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <div class="case-nav">
+        <a href="vialytics.html"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H3"></path><path d="M7 4 L3 8 L7 12"></path></svg><img src="../../i/c/via.png" alt=""><span>vialytics</span></a>
+        <a href="snappyloop.html"><span>snappyloop</span><img src="../../i/c/sl.svg" alt=""><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8 H13"></path><path d="M9 4 L13 8 L9 12"></path></svg></a>
+    </div>
+</main>
+
+<footer class="site-footer" id="contact">
+    <div class="wrap">
+        <div class="footer-main">
+            <div class="footer-title">Давайте поговорим.</div>
+            <div class="footer-sub">Живу в Мюнхене &mdash; готов к гибридному формату в любом городе Германии.</div>
+            <div class="footer-actions">
+                <a class="btn btn-primary" href="mailto:vasily.kulakov@gmail.com">Email</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/vasiliy-kulakov" rel="me">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <div>&copy; 2026 Vasil Kulakov &middot; Munich, Bavaria</div>
+        </div>
+    </div>
+</footer>
+
+<script src="../../js/cover-tilt.js"></script>
+<script src="../../js/theme.js"></script>
+
+</body>
+</html>

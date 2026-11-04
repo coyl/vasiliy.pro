@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Vasil Kulakov, CV, resume, VP of Engineering, CTO, Head of Engineering, MBA, OKR, SRE, Kubernetes, DevOps, Golang, Google Cloud">
-    <meta name="description" content="CV of Vasil Kulakov: VP of Engineering / Former CTO with MBA. 20 years of development, 14 years of people management, scaling engineering organizations from 5 to ~40 people, SRE transformations, and AI-driven platforms.">
-    <title>Vasil Kulakov — VP of Engineering | Former CTO &amp; Head of Engineering | MBA</title>
+    <meta name="keywords" content="Vasil Kulakov, CV, resume, AI transformation, AI-native engineering, agentic delivery, VP of Engineering, CTO, Engineering Manager, LLM gateway, SRE, Kubernetes, Golang, Google Cloud, MBA">
+    <meta name="description" content="CV of Vasil Kulakov: engineering leader focused on AI transformation and agentic delivery. Former VP of Engineering and CTO; 20+ years in software, 14 years leading teams; hands-on in Go, Kubernetes and reliable AI platforms.">
+    <title>Vasil Kulakov — AI Transformation &amp; Engineering Leadership | Former VP Engineering &amp; CTO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -198,6 +198,7 @@
             font-size: 9pt;
         }
 
+        @page { size: A4; margin: 0; }
         @media print {
             body { padding: 10mm 12mm; font-size: 10pt; }
             .experience { break-before: page; page-break-before: always; }
@@ -220,10 +221,11 @@
     <header class="cv-header">
         <div class="cv-header-left">
             <h1>Vasil Kulakov</h1>
-            <div class="tagline">VP of Engineering | Former CTO &amp; Head of Engineering | MBA</div>
+            <div class="tagline">AI Transformation &amp; Engineering Leadership | Former VP Engineering &amp; CTO | MBA</div>
             <div class="contact">
                 <span>+49-178-268-90-16</span>
                 <span>vasily.kulakov@gmail.com</span>
+                <span>vasiliy.pro · linkedin.com/in/vasiliy-kulakov</span>
                 <span>Munich, Bavaria — available for hybrid presence in any city in Germany</span>
             </div>
         </div>
@@ -245,12 +247,13 @@
 
     <section class="summary">
         <h2>Summary</h2>
-        <p>Engineering leader (VP / former CTO) with 20 years in software and 14 years of people management. MBA; Google Cloud Architect and DevOps certified. Based in Munich; available hybrid in any city in Germany.</p>
+        <p>Engineering leader (former VP of Engineering and CTO) with 20+ years in software and 14 years of people management, focused on AI transformation and agentic delivery &mdash; hands-on enough to validate the architecture, the code and the production model. MBA; Google Cloud Architect and DevOps certified. Based in Munich; available hybrid in any city in Germany.</p>
         <ul>
-            <li>Scaled Homeapp engineering from 5 to ~40 people; stood up 3 product teams at Infourok.</li>
-            <li>Built hiring, Scrum, KPI, and remote-work systems; partnered with Product on delivery.</li>
-            <li>Led SRE/DevOps transformations: bare metal → Kubernetes, CI/CD, observability.</li>
-            <li>Languages: English (C2 / EF SET), German (A2).</li>
+            <li><strong>AI-native delivery:</strong> designed and run an operating model in which specialized agents execute scoped work through GitHub Issues, while product decisions, architecture, priorities, risk, review and acceptance stay human-owned.</li>
+            <li><strong>Reliable AI platforms:</strong> built a production AI language-learning platform load-tested at 20k RPS, and Keystone (KTMS), an open-source LLM gateway.</li>
+            <li><strong>Engineering leadership:</strong> scaled Homeapp engineering from 5 to ~40 people as VP of Engineering; stood up 3 product teams at Infourok.</li>
+            <li><strong>Modernization &amp; SRE:</strong> led a six-month backend modernization and SRE transformation at CHECK24 (bare metal → Kubernetes), recognized with the internal Best Client-Oriented Product award.</li>
+            <li>Languages: English (C2 / EF SET), German (B1).</li>
         </ul>
     </section>
 
@@ -302,12 +305,14 @@
 
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Staff Engineer</span>
-                <span class="job-dates">12/2025 – Present</span>
+                <span class="job-title">Founder &amp; Engineering Lead</span>
+                <span class="job-dates">12/2024 – Present</span>
             </div>
-            <div class="job-company"><img class="job-logo" src="i/c/sl.svg" alt="" width="22" height="22">snappyloop.work — Munich, Bavaria, Germany</div>
+            <div class="job-company"><img class="job-logo" src="i/c/sl.svg" alt="" width="22" height="22">Snappy Loop — Munich, Bavaria, Germany</div>
             <ul>
-                <li>Built the platform for an AI language-learning product; infrastructure and security for a multi-agent system tested at 20k RPS.</li>
+                <li>Designed a multi-agent delivery process: specialized agents execute scoped work through GitHub Issues; product decisions, architecture, priorities, risk, review and acceptance remain human-owned.</li>
+                <li>Grew the AI language-learning product from 200 to 5,000 users in 3 months; evolved a single bot worker into a horizontally scalable, webhook-driven platform (Go, PHP, PostgreSQL, Redis, Kubernetes) load-tested at 20k RPS.</li>
+                <li>Extracted the platform&rsquo;s LLM proxy into Keystone (KTMS), an open-source LLM gateway; presented the platform at SREday Munich 2026.</li>
             </ul>
         </div>
 
@@ -318,7 +323,7 @@
             </div>
             <div class="job-company"><img class="job-logo" src="i/c/c24.png" alt="" width="22" height="22">CHECK24 Vergleichsportal GmbH — Munich, Bavaria, Germany</div>
             <ul>
-                <li>Led backend modernization (Laminas → Doctrine in 6 months) and won the internal "Best Client-Oriented Product" award.</li>
+                <li>Led a six-month backend modernization (Laminas → Doctrine) together with an SRE transformation; recognized with the internal "Best Client-Oriented Product" award.</li>
                 <li>Drove a DevOps/SRE transformation: Ansible on bare metal → Kubernetes, Helm, Bitbucket Pipelines; one-click test environments, observability, and CI with static analysis and tests.</li>
             </ul>
         </div>
@@ -338,7 +343,7 @@
 
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Head of Development, SRM</span>
+                <span class="job-title">Head of Development</span>
                 <span class="job-dates">09/2021 – 08/2022</span>
             </div>
             <div class="job-company"><img class="job-logo" src="i/c/iu.png" alt="" width="22" height="22">Infourok</div>
@@ -357,7 +362,7 @@
             <div class="job-team">Team: 15 backend, 12 frontend, 5 QA, 4 DevOps, 4 PMs.</div>
             <ul>
                 <li>Scaled engineering from 5 to ~40 people; introduced product trios across design, product, and engineering.</li>
-                <li>Instituted Scrum, hiring, KPI/motivation, and remote operations; partnered with the CTPO on product process.</li>
+                <li>Instituted Scrum, hiring, KPI/motivation, and remote operations; partnered with the CPO on product process.</li>
                 <li>Built the company platform: microservices (PHP/Golang), Kubernetes, and CI/CD (JIRA, GitHub, Drone, Helm).</li>
             </ul>
         </div>
@@ -386,7 +391,7 @@
 
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Symfony Team Lead</span>
+                <span class="job-title">Engineering Manager</span>
                 <span class="job-dates">08/2015 – 04/2017</span>
             </div>
             <div class="job-company"><img class="job-logo" src="i/c/dsl.svg" alt="" width="22" height="22">Digital Society Laboratory</div>
@@ -408,12 +413,12 @@
 
         <div class="job">
             <div class="job-header">
-                <span class="job-title">Head of Engineering</span>
+                <span class="job-title">CTO</span>
                 <span class="job-dates">03/2012 – 09/2014</span>
             </div>
             <div class="job-company"><img class="job-logo" src="i/c/cre.png" alt="" width="22" height="22">Creara Media</div>
             <ul>
-                <li>Managed 5 PHP teams (15 developers); introduced Git/Jira/TeamCity CI/CD and shared platform components.</li>
+                <li>Led the engineering department: 5 PHP teams (15 developers); introduced Git/Jira/TeamCity CI/CD, owned technology choices and shared platform components.</li>
             </ul>
         </div>
 
@@ -511,12 +516,12 @@
     </section>
 
     <section class="opensource">
-        <h2>Open source projects</h2>
+        <h2>Talks &amp; open source</h2>
         <ul>
-            <li><a href="https://github.com/snappyloop/stories">https://github.com/snappyloop/stories</a></li>
-            <li><a href="https://github.com/telegraph-go/telegraph">https://github.com/telegraph-go/telegraph</a></li>
-            <li><a href="https://github.com/deckwatch/deckwatch-go">https://github.com/deckwatch/deckwatch-go</a></li>
-            <li><a href="https://github.com/coyl/fsservo">https://github.com/coyl/fsservo</a></li>
+            <li><a href="https://vasiliy.pro/talks/bot-pod-problem.html">One Bot, One Pod, One Problem at a Time</a> &mdash; SREday Munich, May 2026</li>
+            <li><a href="https://vasiliy.pro/talks/ship.html">Stop Prototyping, Start Shipping</a> &mdash; meetup at Google, December 2025</li>
+            <li><a href="https://github.com/ai-process/ktms">github.com/ai-process/ktms</a> &mdash; Keystone (KTMS), open-source LLM gateway</li>
+            <li><a href="https://github.com/telegraph-go/telegraph">telegraph-go/telegraph</a> &middot; <a href="https://github.com/deckwatch/deckwatch-go">deckwatch/deckwatch-go</a></li>
         </ul>
     </section>
 </body>
