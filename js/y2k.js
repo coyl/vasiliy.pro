@@ -123,7 +123,28 @@
   function q(s) { return document.querySelector(s); }
   function ieOnly(e) { e.preventDefault(); alert(t.ieOnly); }
 
+  // links between the home pages keep the theme on: the language switch, the brand
+  var homePath = /^\/(index|de|ru|pl)\.html$|^\/$/;
+  function keepLinks() {
+    [].forEach.call(document.querySelectorAll('a[href]'), function (a) {
+      var raw = a.getAttribute('href');
+      if (raw.charAt(0) === '#') return;
+      var u = new URL(raw, location.href);
+      if (u.origin !== location.origin || !homePath.test(u.pathname) || u.searchParams.has('y2k')) return;
+      u.searchParams.set('y2k', '1');
+      a.setAttribute('data-y2k-href', raw);
+      a.setAttribute('href', u.pathname + u.search + u.hash);
+    });
+  }
+  function restoreLinks() {
+    [].forEach.call(document.querySelectorAll('a[data-y2k-href]'), function (a) {
+      a.setAttribute('href', a.getAttribute('data-y2k-href'));
+      a.removeAttribute('data-y2k-href');
+    });
+  }
+
   function decorate() {
+    keepLinks();
     var body = document.body;
     var banner = el('div', 'y2k-banner');
     banner.appendChild(el('span', null, t.banner));
@@ -384,6 +405,7 @@
     document.title = origTitle;
     added.forEach(function (n) { n.remove(); });
     added = []; timers = [];
+    restoreLinks();
     document.querySelectorAll('.y2k-spark').forEach(function (n) { n.remove(); });
     root.classList.remove('y2k');   // css/y2k.css stays: the blue screen still needs it
     if (preview) history.replaceState(null, '', location.pathname + location.hash);
