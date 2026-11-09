@@ -17,6 +17,12 @@
     });
   }
 
+  // A link back to the page under the overlay: the site root, index.html or this language's home.
+  function isHome(url) {
+    var p = new URL(url).pathname;
+    return p === '/' || /\/index\.html$/.test(p) || p === new URL(homeUrl).pathname;
+  }
+
   function open(url, push) {
     fetch(url)
       .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
@@ -48,7 +54,7 @@
     var href = a.getAttribute('href') || '';
     if (overlay.classList.contains('open') && overlay.contains(a)) {
       if (a.href.indexOf('/work/') !== -1) { e.preventDefault(); open(a.href, true); }
-      else if (href.indexOf('index.html') !== -1 || href.charAt(0) === '#') { e.preventDefault(); close(true); }
+      else if (href.charAt(0) === '#' || isHome(a.href)) { e.preventDefault(); close(true); }
       return;
     }
     if (href.indexOf('work/') === 0) { e.preventDefault(); open(a.href, true); }
